@@ -23,9 +23,15 @@ navbar:
       - text: "Working with code"
       - text: "Literate programming in Rmd"
         href: 05_literate-prog.html
+      - text: "Git & GitHub through Rstudio"
+        href: 06_git.html
   - text: "Day 2"
     icon: fa-gear
     menu:
+      - text: "Collaborative GitHub"
+        href: 07_collab_gh.html
+      - text: "Evolottery"
+        href: 08_evoloterry.html
       - text: Packaging code
         href: 10_pkg_functions.html
   - text: About
