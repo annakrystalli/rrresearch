@@ -2,10 +2,7 @@
 title: "Untitled"
 author: "Anna Krystalli"
 date: "3/23/2018"
-output:
-  html_document:
-    toc: true
-    toc_float: true
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
