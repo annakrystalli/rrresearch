@@ -349,5 +349,20 @@ collection."
 
 ---
 
+# Get Ready
+
+## Open Rstudio
+
+## Install packages
+
+Run this code in the console
+
+```{r, eval=FALSE}
+install.packages("devtools", "tinytex", "rmarkdown", "usethis",
+                 "here", "tidyverse")
+```
+
+Some of these are large packages so it's best to get their installation going. If you have any installation problems, come see me at the next coffee break
+
 ## Get back [home](index.html)
 
