@@ -45,26 +45,7 @@ class: top, right, inverse
 
 # Welcome
 
-## Course Outline <http://annakrystalli.me/rrresearch/>
-
-### Today
-
-- Introduction
-- Basic Data Hygiene
-- Research Data Management - Metadata
-- Literate Programming with Rmarkdown
-- Version Control with Git
-
----
-# Welcome
-
-## Course Outline <http://annakrystalli.me/rrresearch/>
-
-### Tomorrow
-
-- Collaborating through GitHub
-- Managing code as a package
-- Bringing it all together: a Research compendium
+## Course Materials <http://annakrystalli.me/rrresearch/>
 
 ---
 class: top, right, inverse
@@ -90,7 +71,7 @@ Here's what's next
 *<small>APR 5, 2018, The Atlantic</small>*
 
 
-<img src="../assets/SciencePaperFlames-New.gif" height="100px" width="350px">
+<img src="assets/SciencePaperFlames-New.gif" height="100px" width="350px">
 
 
 ---
@@ -109,7 +90,7 @@ ROGER D. PENG, SCIENCE 02 DEC 2011 : 1226-1227
 
 > Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.
 
-<img src="../assets/repro-spectrum.jpg" width=550px>
+<img src="assets/repro-spectrum.jpg" width=550px>
 
 ---
 
@@ -124,13 +105,13 @@ _Nielsen, Michael. Reinventing Discovery: The New Era of Networked Science. Prin
 ]
 
 .pull-right[
-<img src="../assets/reinventing-innovation.png" height="300px">
+<img src="assets/reinventing-innovation.png" height="300px">
 ]
 ---
 ## The internet was built for open science
 ### Key to next generation networked science
 
-.center[![](../assets/www.jpg)]
+.center[![](assets/www.jpg)]
 
 
 
@@ -244,7 +225,7 @@ We need better digital curation of the workhorses of modern science: **code** & 
 
 
 .centre[
-![](../assets/img/beer_messy_tidy.png)
+![](assets/img/beer_messy_tidy.png)
 ]
 
 ---
@@ -261,7 +242,7 @@ collection."
 
 
 ---
-background-image: url(../assets/reproducible-data-analysis-02.png)
+background-image: url(assets/reproducible-data-analysis-02.png)
 background-size: contain
 class: bottom
 
@@ -269,7 +250,7 @@ class: bottom
 
 ---
 
-background-image: url(../assets/reproducible-data-analysis-04.png)
+background-image: url(assets/reproducible-data-analysis-04.png)
 background-size: contain
 class: bottom
 
@@ -277,12 +258,21 @@ class: bottom
 
 ---
 
-background-image: url(../assets/reproducible-data-analysis-06.png)
+background-image: url(assets/reproducible-data-analysis-06.png)
 background-size: contain
 class: bottom
 
 [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
+--
+
+## R + Rstudio
+
+### Next generation data science powerhouse
+
+#### Backed by a diverse and active community of learners, users and developers
+
+![](https://www.rfordatasci.com/img/logo.png)![](https://software-carpentry.org/files/2017/12/satrday-logo.png)![](https://github.com/ropensci/dev_guide/raw/master/images/icon_short_color.png)
 
 ---
 
@@ -306,6 +296,27 @@ class: bottom
 --
 
 - Ultimately, to **change how science works for better for everyone**!
+
+---
+## Course Outline
+
+### Today
+
+- Introduction
+- Basic Data Hygiene
+- Research Data Management - Metadata
+- Literate Programming with Rmarkdown
+- Version Control with Git
+
+---
+
+## Course Outline
+
+### Tomorrow
+
+- Collaborating through GitHub
+- Managing code as a package
+- Bringing it all together: a Research compendium
 
 ---
 
@@ -336,5 +347,7 @@ class: bottom
 
 - Please feel free if I use jargon you don't understand or need some clarification.  Questions are helpful for everyone! `r emo::ji("sparkles")`
 
+---
 
+## Get back [home](index.html)
 

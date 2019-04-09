@@ -180,6 +180,8 @@ class: top, right, inverse
 ### See [**Collaborative plot**](https://rse.shef.ac.uk/collaborative_github_exercise/plot_trait_evolution.html)
 
 
+---
 
+## Get back [home](index.html)
 
 
