@@ -5,7 +5,12 @@
 .Rapp.history
 .DS_Store
 analysis/figure
+analysis/assets
 analysis/*png
 analysis/*html
 analysis/*_cache
 analysis/site_libs
+assets/*
+data
+slides/*.html
+slides/libs/*
