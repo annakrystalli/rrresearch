@@ -6,34 +6,44 @@ navbar:
   - text: Home
     href: index.html
   - text: "Day 1"
-    icon: fa-gear
+    icon: fa-calendar
     menu:
       - text: "Welcome"
       - text: "Introduction"
         href: 01_intro.html
+        icon: fa-caret-square-o-right
       - text: "Managing Data"
       - text: "Basic Data Hygiene"
         href: 02_RDM-intro.html
+        icon: fa-caret-square-o-right
       - text: "Good filenaming"
         href: 03_filenaming.html
+        icon: fa-caret-square-o-right
       - text: "Metadata"
         href: 04_metadata.html
-      - text: "Dataspice"
+        icon: fa-caret-square-o-right
+      - text: "Practical Data management: Dataspice"
         href: http://annakrystalli.me/dataspice-tutorial/
+        icon: fa-laptop
       - text: "Working with code"
       - text: "Literate programming in Rmd"
+        icon: fa-laptop
         href: 05_literate-prog.html
       - text: "Git & GitHub through Rstudio"
         href: 06_git.html
+        icon: fa-laptop
   - text: "Day 2"
-    icon: fa-gear
+    icon: fa-calendar
     menu:
       - text: "Collaborative GitHub"
         href: 07_collab_gh.html
+        icon: fa-caret-square-o-right
       - text: "Evolottery"
         href: 08_evoloterry.html
+        icon: fa-laptop
       - text: Packaging code
         href: 10_pkg_functions.html
+        icon: fa-laptop
   - text: About
     href: about.html
   - text: License
