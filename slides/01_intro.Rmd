@@ -242,37 +242,36 @@ collection."
 
 
 ---
-background-image: url(assets/reproducible-data-analysis-02.png)
-background-size: contain
-class: bottom
+
+![](assets/reproducible-data-analysis-02.png)
 
 [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
 ---
 
-background-image: url(assets/reproducible-data-analysis-04.png)
-background-size: contain
-class: bottom
+![](assets/reproducible-data-analysis-04.png)
 
 [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
 ---
 
-background-image: url(assets/reproducible-data-analysis-06.png)
-background-size: contain
-class: bottom
+![](assets/reproducible-data-analysis-06.png)
 
 [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
---
+---
 
 ## R + Rstudio
 
 ### Next generation data science powerhouse
 
+--
+
 #### Backed by a diverse and active community of learners, users and developers
 
-![](https://www.rfordatasci.com/img/logo.png)![](https://software-carpentry.org/files/2017/12/satrday-logo.png)![](https://github.com/ropensci/dev_guide/raw/master/images/icon_short_color.png)
+
+<img src="https://www.rfordatasci.com/img/carousel/logo-big.png" width="150px" height="150px"><img src="https://software-carpentry.org/files/2017/12/satrday-logo.png" width="150px" height="150px"><img src="https://rladies.org/wp-content/uploads/2016/12/R-LadiesGlobal.png" width="150px" height="150px"><img src="https://forwards.github.io/images/forwards.svg" width="150px" height="150px"><img src="https://github.com/ropensci/dev_guide/raw/master/images/icon_short_color.png" width="150px" height="150px">
+
 
 ---
 
@@ -298,6 +297,7 @@ class: bottom
 - Ultimately, to **change how science works for better for everyone**!
 
 ---
+
 ## Course Outline
 
 ### Today
