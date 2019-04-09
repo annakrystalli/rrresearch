@@ -10,13 +10,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = F, message = F, tidy = T)
 
 ```{r echo= FALSE}
 library(tidyverse)
-
-magick_webshot <- function(...){
-  webshot::webshot(...)
-  webshot <- magick::image_read("webshot.png")
-  file.remove("webshot.png")
-  webshot
-}
 ```
 
 
@@ -224,25 +217,35 @@ Useful features:
 Throughout this workshop, we'll be working with the gapminder dataset to produce **a reproducible Rmarkdown vignette** of our work. We'll also be working in a project and setting our analysis report up to be shared online!
 
 
-### Create new project `gapminder-rmarkdown`!!
+### install the packages we'll need
+
+```{r, eval=FALSE}
+install.packages(c("skimr", "ggplot2",  "dplyr", "plotly", "DT", "tibble"))
+```
 
 
-<div class="alert alert-info"><strong>File > New Project... > New Directory > New Project > gapminder-rmarkdown </strong></div>
+### Create new project `gapminder-analysis`
 
 
-### Create your first `.Rmd`!!
+<div class="alert alert-info"><strong>File > New Project... > New Directory > New Project > gapminder-analysis </strong></div>
 
 
-<div class="alert alert-info"><strong>File > New File > RMarkdown... > Document</strong></div>
+### Create your first `.Rmd`!
+
+<div class="alert alert-info"><strong>File > New File > RMarkdown... > Document </strong></div>
 
 <img src="assets/newmd.gif" width="500px"/>
+
+#### Save as `index.Rmd`
+
+- Before knitting, the document needs to be saved. Give it a useful name, e.g. `index.Rmd`
+
+
 
 
 ---
 
-### save and render it
-
-- Before knitting, the document needs to be saved. Give it a useful name, e.g. `index.Rmd`
+### Render it
 
 - Render the document by clicking on the **knit** button.
 
@@ -269,11 +272,6 @@ rmarkdown::render(input = "index.Rmd")
 
 [<img src="assets/cheat.png" width="300px"/>](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
-### install the packages we'll need
-
-```{r, eval=FALSE}
-install.packages(c("skimr",, "ggplot2",  "dplyr", "plotly", "DT"))
-```
 
 
 
@@ -288,11 +286,19 @@ https://bookdown.org/yihui/rmarkdown/markdown-syntax.html
 
 The yaml header contains metadata about the document, most importantly the output. Different seetings can be set within different outputs. Here we'll be focusing on on the [`html_document` output](https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents).
 
+It is contained between these separators at the top of the file.
+
+```
+---
+
+---
+```
+
 Markdown was originally designed for HTML output, so it may not be surprising that the HTML format has the richest features among all output formats. 
 
 ## define outputs
 
-To create an HTML document from R Markdown, you specify the html_document output format in the YAML metadata of your document:
+To create an HTML document from R Markdown, you specify the `html_document` output format in the YAML metadata of your document:
 
 <img src="assets/outputs.png" width="500px" />
 
@@ -311,11 +317,7 @@ output: html_document
 
 ```
 
-```{r, echo=FALSE}
-magick_webshot(url = "http://rpubs.com/annakrystalli/output",
-               cliprect = c(5, 5, 400, 200),
-               expand = c(92, 800, 500, 10))
-```
+![](assets/demo-0.png)
 
 ---
 
@@ -334,12 +336,7 @@ output:
     toc_float: true
 ---
 ```
-
-```{r, echo=FALSE}
-magick_webshot(url = "http://rpubs.com/annakrystalli/toc",
-               cliprect = c(5, 5, 400, 200),
-               expand = c(92, 800, 500, 10))
-```
+![](assets/demo-1.png)
 
 
 
@@ -364,14 +361,7 @@ output:
     theme: cosmo
 ---
 ```
-
-
-```{r, echo=FALSE}
-magick_webshot(url = "http://rpubs.com/annakrystalli/theme",
-               cliprect = c(5, 5, 400, 200),
-               expand = c(92, 800, 500, 10))
-```
-
+![](assets/demo-2.png)
 
 ---
 
@@ -392,14 +382,7 @@ output:
     highlights: zenburn
 ---
 ```
-
-```{r, echo=FALSE}
-magick_webshot(url = "http://rpubs.com/annakrystalli/372827",
-               cliprect = c(5, 5, 400, 200),
-               expand = c(92, 800, 500, 10))
-```
-
-
+![](assets/demo-3.png)
 ---
 
 ## `r emo::ji("computer")` Exercise Part 2
@@ -474,7 +457,7 @@ superscript^2^
 ```
 **rendered html**
 
-<img src="assets/knit.png" height="700px" width="800px"/>
+<img src="assets/headers.png" height="700px" width="800px"/>
 
 ---
 
@@ -667,14 +650,12 @@ Do some quick online research on **Gapminder**. A good places to start:
 
 #### Write a short description
 
-Write a short description of the Gapminder project (feel free to copy, paste and edit information). 
+Write a short description of the Gapminder project (feel free to copy, paste and edit information). Have a look at the gapminder [site](https://www.gapminder.org/) and especially the [about](https://www.gapminder.org/about-gapminder/) page.
 
 Make use of markdown annotation to:
 
 + *highlight* **important** ***information***
 + include links to sources or further information.
-
----
 
 #### Add an image
 
@@ -692,7 +673,7 @@ Add an **image related to Gapminder**.
 
 ## **inserting new chunks**
 
-You can quickly insert You can insert an [R code chunk](https://bookdown.org/yihui/rmarkdown/r-code.html) with:
+You can quickly insert an [R code chunk](https://bookdown.org/yihui/rmarkdown/r-code.html) with:
 
 - the keyboard shortcut **`Ctrl + Alt + I`** (**OS X: `Cmd + Option + I`**)
 - the Add Chunk ![](https://d33wubrfki0l68.cloudfront.net/b8b19518e688e3ca1390e0a1588916f04908d33f/8a4dc/images/notebook-insert-chunk.png) command in the RStudio toolbar
@@ -809,7 +790,7 @@ Write brief instructions (including code) for others to access the dataset in R.
 
 In R we often need to describe a setup proceedure that involves specifying the installation of required packages. However, **installation of packages in not handled in `.Rmd`!** (For the moment, install packages through the console). 
 
-In our case, we'll want to **include the code for installing the `gapminder` package** but **not evaluate it** in the `.Rmd`.
+In our case, we'll want to **include the code for installing the `gapminder` package** but **not evaluate it** in the `.Rmd`. We also want to include the rest of the packages we want to use: **"ggplot2", "DT", "skimr"**
 
 <br>
 
@@ -817,7 +798,10 @@ In our case, we'll want to **include the code for installing the `gapminder` pac
 
 ## `r emo::ji("vertical_traffic_light")` Displaying data
 
+There are many ways you can display data and data properties in an `.Rmd`.
+
 ### printing `data.frame`s
+
 ```{r}
 data(airquality)
 head(airquality)
@@ -826,6 +810,8 @@ head(airquality)
 ---
 
 ### printing `tibble`s
+
+One nice feature of using `tibble`s over `data.frame`s is the tidy printing behaviour:
 ```{r}
 library(tibble)
 as_tibble(airquality)
@@ -834,6 +820,10 @@ as_tibble(airquality)
 ---
 
 ### **`Displaying knitr::kable()` tables**
+
+We can use other packages to create html tables from our data.
+
+The simplest is to use the `knitr::kable()` function.
 
 ```{r, warning=FALSE, message=FALSE}
 library(knitr)
@@ -844,6 +834,8 @@ kable(head(airquality), caption = "New York Air Quality Measurements")
 ---
 
 ### **Displaying interactive `DT::datatable()` tables**
+
+You can display interactive html tables using function `DT::datatable()`:
 ```{r, warning=FALSE, message=FALSE}
 library(DT)
 data(airquality)
@@ -854,7 +846,7 @@ datatable(airquality, caption = "New York Air Quality Measurements")
 
 ### **Summarising data with `skimr::skim()`**
 
-Provides a frictionless approach to displaying **summary statistics** that can be quickly skimmed quickly to understand their data.
+Fuction `skimr::skim()` provides a simple approach to displaying **summary statistics** that can be quickly skimmed quickly to understand data.
 
 ```{r}
 skimr::skim(airquality)
@@ -865,14 +857,17 @@ skimr::skim(airquality)
 
 ## `r emo::ji("computer")` Exercise Part 5
 
-```{r, eval=FALSE}
-install.packages("gapminder")
-```
-
-
 #### Start a new section called **`"Dataset"`**
 
 #### Display an example of the dataset
+
+Make the gapminder data available by loading the gapminder package
+
+```{r}
+library(gapminder)
+```
+
+
 
 #### Write a short description of the dataset
 
@@ -892,22 +887,13 @@ install.packages("gapminder")
 ## `r emo::ji("vertical_traffic_light")` plots
 
 
+By default, figures produced by R code will be placed immediately after the code chunk they were generated from. 
 
-
+Let's use `ggplot2` to have a look to the relationship between a couple of variables. 
 ```{r}
-library("ggplot2")
-ggplot(gapminder::gapminder, aes(x = continent, y = lifeExp)) +
-    geom_boxplot(outlier.colour = "hotpink") +
-    geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
-
-```
-
-
----
-
-```{r}
-p <- gapminder::gapminder %>% ggplot(aes(x = gdpPercap, y = lifeExp, 
-                                    color = continent)) + geom_point()
+p <- ggplot(gapminder, 
+            aes(x = gdpPercap, y = lifeExp, color = continent)) + 
+  geom_point()
 ```
 
 ```{r}
@@ -931,12 +917,18 @@ ggplotly(p)
 
 ## `r emo::ji("computer")` Exercise Part 6a
 
-- Replicate some of the plots above but **hide the code that generates them**.
 
-- OPTIONAL Can you adapt the model and plotting code to use log10 transformed data?
-    + hint: explore `?log10` function for using in `lm` and the `scale_...` functions in `ggplot2` ([cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf))
+- Replicate the plot above in your own `index.Rmd` but **hide the code that generates them**.
 
-- Add some comments for each plot
+- Add a caption
+
+- Experiment with controlling figure output width
+
+- OPTIONAL Can you adapt the plotting code to use log10 transformed data?
+    + hint: explore  the `scale_...` functions in `ggplot2` ([cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf))
+
+
+Details on [chunk arguments related to plotting](https://bookdown.org/yihui/rmarkdown/r-code.html#figures)
 
 
 
@@ -946,7 +938,7 @@ ggplotly(p)
 <div class="alert alert-info"> Publish your report on <a href="https://rpubs.com/">Rpubs</a></strong></div>
 
 
-- Add you link to our [googledoc](https://docs.google.com/document/d/1-yDYTwBU-shqRvpG903K4iSsVyGZDXdfWakrAbf7KUE/edit?usp=sharing)
+- Add you link to our [hackmd](https://hackmd.io/mp12anoNS_O4UonAR5jcbg?both)
 
 ---
 
@@ -1201,6 +1193,11 @@ Embbed gifs, videos, widgets in this way
 
 ### `reprex`
 
+```{r, eval=FALSE}
+install.packages("reprex")
+```
+
+
 Use function **`reprex::reprex()`** to produce a reproducible example in a custom markdown format for the `venue` of your choice
 
 - **`"gh"`** for GitHub (default)
@@ -1250,14 +1247,7 @@ Can even be used to write thesis!
 - Can use it to document any functional code you produce and demonstrate it's us ethrough vignettes 
 
 
-```{r echo=F}
-cliprect <- c(5, 5, 600, 400)
-expand <- c(92, 400, 500, 10)
-magick_webshot(url = "https://ropenscilabs.github.io/pkgreviewr/",
-               cliprect = cliprect,
-               expand = expand) %>% magick::image_resize("600x800")
-```
-
+![](assets/pkgreviewr.png)
 
 ---
 
@@ -1267,21 +1257,13 @@ magick_webshot(url = "https://ropenscilabs.github.io/pkgreviewr/",
 
 The workflowr R package makes it easier for researchers to organize their projects and share their results with colleagues.
 
-```{r echo=F}
-cliprect <- c(5, 5, 600, 800)
-expand <- c(92, 400, 500, 10)
-c(magick_webshot(url = "http://annakrystalli.me/news-scrape/",
-               cliprect = cliprect,
-               expand = expand),
-  magick_webshot(url = "http://annakrystalli.me/news-scrape/compile_db.html",
-               cliprect = c(5, 100, 600, 800),
-               expand = expand)) %>% magick::image_append() %>% magick::image_resize("600x800")
 
-```
 
+![](assets/workflowr-index.png)![](assets/workflowr-article.png)
+]
 ---
 
-### blogdown
+### [blogdown](https://bookdown.org/yihui/blogdown/)
 
 #### For creating and mantaining blogs.
 
@@ -1289,19 +1271,25 @@ Check out <https://awesome-blogdown.com/>, **a curated list of awesome #rstats b
 
 
 
-```{r echo=F}
-magick_webshot(url = "https://awesome-blogdown.com/",
-               cliprect = c(5, 5, 450, 200),
-               expand = c(92, 800, 500, 10))
-```
+---
 
+### [bookdown](https://bookdown.org/yihui/bookdown/)
 
+#### For creating and mantaining online books
+
+- [rOpenSci Software Review policies](https://ropensci.github.io/dev_guide/)
+- [Geocomputation in R](https://geocompr.robinlovelace.net/)
+
+##### [Thesisdown](https://github.com/ismayc/thesisdown)
+
+An updated R Markdown thesis template using the bookdown package
 
 
 ---
 
 # **Resources**
 
+- [R Markdown: The Definitive guide](https://bookdown.org/yihui/rmarkdown/)
 
 - [Rmarkdown documentation](http://rmarkdown.rstudio.com/)
 
@@ -1318,7 +1306,7 @@ magick_webshot(url = "https://awesome-blogdown.com/",
 
 ## Solutions: My example
 
-- [`gapminder-analysis` Rendered html](http://annakrystalli.me/gapminder-analysis/)
+- [`gapminder-analysis` Rendered html](index-demo-pre.html)
 
 
-- [`gapminder-analysis` Rmd](https://github.com/annakrystalli/gapminder-analysis/blob/master/index.Rmd)
+- [`gapminder-analysis` Rmd](https://github.com/annakrystalli/rrresearch/blob/master/demos/index-pre.Rmd)
