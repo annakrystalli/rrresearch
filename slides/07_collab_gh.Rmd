@@ -68,17 +68,20 @@ class: top, right, inverse
 ---
 
 
-Back up and sync through the cloud
+#### Back up and sync through the cloud
 
+<figure>
 <img src="assets/remotes.png">
+<figcaption>Image: Jessica Lord, 2013 BSD</figcaption>
+</figure>
 
 ---
 
-Fork and contribute to other's work 
+#### Fork and contribute to other's work 
 
 <figure>
 <img src="assets/clone.png" height="500px">
-<figcaption>Image:Jessica Lord, 2013 BSD</figcaption>
+<figcaption>Image: Jessica Lord, 2013 BSD</figcaption>
 </figure>
 
 ---
