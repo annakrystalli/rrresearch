@@ -1,17 +1,40 @@
 name: "rrresearch"
 output_dir: ../docs
 navbar:
-  title: "rrresearch"
+  title: "R for Reproducible Research"
   left:
   - text: Home
     href: index.html
+  - text: "Day 1"
+    icon: fa-gear
+    menu:
+      - text: "Welcome"
+      - text: "Introduction"
+        href: 01_intro.html
+      - text: "Managing Data"
+      - text: "Basic Data Hygiene"
+        href: ../slides/02_RDM-intro.html
+      - text: "Good filenaming"
+        href: 03_filenaming.html
+      - text: "Metadata"
+        href: 04_metadata.html
+      - text: "Dataspice"
+        href: http://annakrystalli.me/dataspice-tutorial/
+      - text: "Working with code"
+      - text: "Literate programming in Rmd"
+        href: 05_literate-prog.html
+  - text: "Day 2"
+    icon: fa-gear
+    menu:
+      - text: Packaging code
+        href: 10_pkg_functions.html
   - text: About
     href: about.html
   - text: License
     href: license.html
 output:
   workflowr::wflow_html:
-    toc: yes
-    toc_float: yes
-    theme: cosmo
-    highlight: textmate
+    theme: flatly
+    highlight: pygments
+    toc: true
+    toc_float: true

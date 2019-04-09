@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="ACCE Research Data and Project Management" />
 
 
-<title>Home</title>
+<title>Closing Remarks</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
@@ -245,6 +249,92 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -252,6 +342,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -342,7 +442,9 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Closing Remarks</h1>
+<h4 class="author">ACCE Research Data and Project Management</h4>
+<h4 class="date">01-02 May 2018, TUoS</h4>
 
 </div>
 
@@ -391,7 +493,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -454,158 +556,172 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/412fe0ed95264c5e3bc4c3da4e5f8905a02687e5/docs/index.html" target="_blank">412fe0e</a>
-</td>
-<td>
-Anna Krystalli
-</td>
-<td>
-2019-04-09
-</td>
-<td>
-commit index
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/558735a828d62dce0687015e4e50bcddfa24fe94/docs/index.html" target="_blank">558735a</a>
-</td>
-<td>
-Anna Krystalli
-</td>
-<td>
-2019-04-09
-</td>
-<td>
-commit draft docs
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/annakrystalli/rrresearch/blob/2462ad6cb0cd9248739b3ae23c821fafcab34989/analysis/index.Rmd" target="_blank">2462ad6</a>
-</td>
-<td>
-Anna Krystalli
-</td>
-<td>
-2019-02-16
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<p>Welcome to the <strong>R for Reproducible Research</strong> Resource site.</p>
-<div id="description" class="section level2">
-<h2>Description</h2>
-<p>In order to <strong>ensure robustness</strong> of outputs and <strong>maximise the benefits</strong> of ACCE research to future researchers and society more generally, it is <strong>important to share the underlying code and data</strong>. But for sharing to have any impact, such materials need to be created <strong>FAIR</strong> (<em>findable, accessible, interoperable, reusable</em>), i.e. they must be adequately described, archived, and made discoverable to an appropriate standard.</p>
-<p>Additionally, if analyses are to be deemed robust, they <strong>must be at the very least reproducible</strong>, but ideally well documented and reviewable.</p>
-<p>R and Rstudio tools and conventions offer a powerful framework for making modern, open, reproducible and collaborative computational workflows more accessible to researchers.</p>
-<p>This course focuses on <strong>data and project management through R and Rstudio</strong>, will introduce students to best practice and equip them with modern tools and techniques for managing data and computational workflows to their full potential. The course is designed to be relevant to students with a wide range of backgrounds, working with anything from relatively small sets of data collected from field or experimental observations, to those taking a more computational approach and bigger datasets.</p>
-<div id="by-the-end-of-the-workshop-participants-will-be-able-to" class="section level3">
-<h3>By the end of the workshop, participants will be able to:</h3>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+<hr />
+<div id="take-ownership" class="section level2">
+<h2>take ownership</h2>
 <ul>
-<li><p>Understand the basics of good research data management and be able to produce clean datasets with appropriate metadata.</p></li>
-<li><p>Manage computational projects for reproducibility, reuse and collaboration.</p></li>
-<li><p>Use version control to track the evolution of research projects.</p></li>
-<li><p>Use R tools and conventions to document code and analyses and produce reproducible reports.</p></li>
-<li><p>Be able to publish, share materials and collaborate through the web.</p></li>
-<li><p>Understand why this all matters!</p></li>
+<li><h4 id="try-to-think-ahead-about-where-the-pitfalls-lie.">Try to think ahead about where the pitfalls lie.</h4></li>
+<li><h4 id="iterate-on-your-process.-every-little-helps">Iterate on your process. Every little helps</h4></li>
+<li><h4 id="what-works-what-makes-using-data-easy-what-makes-it-painful">What works? What makes using data easy, what makes it painful?</h4></li>
+<li><h4 id="what-simple-steps-are-most-helpful">What simple steps are most helpful?</h4>
+<ul>
+<li>standard taxonomies</li>
+<li>controlled vocabularies</li>
+<li>tidy data</li>
+<li>simple format</li>
+<li>etc. etc.</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="take-aways" class="section level2">
+<h2>take aways</h2>
+<ul>
+<li><h4 id="prepare-it-to-share-it">prepare it to share it</h4></li>
+<li><h4 id="human-readable-code-and-machine-readable-data">human readable code and machine readable data</h4></li>
+<li><h4 id="automated-pipeline-from-raw-data-to-outputs">automated pipeline from raw data to outputs</h4></li>
+<li><h4 id="better-in-the-open">better in the open</h4></li>
+</ul>
+<blockquote>
+<h4 id="make-yourself-the-most-expendable-member-of-you-team">make yourself the <a href="http://www.datacarpentry.org/blog/soft-skills/">most expendable member</a> of you team!</h4>
+</blockquote>
+<hr />
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<hr />
+<div id="bes-guide-to-data-management" class="section level2">
+<h2>BES guide to data management</h2>
+<p><img src="../assets/img/BES.png" height=300px></p>
+<p><br></p>
+<p>This guide for early career researchers explains what data and data management are, and provides advice and examples of best practices in data management, including case studies from researchers currently working in ecology and evolution.</p>
+<p><br></p>
+<div id="download" class="section level4">
+<h4><a href="http://www.britishecologicalsociety.org/wp-content/uploads/Publ_Data-Management-Booklet.pdf">download</a></h4>
+<hr />
+</div>
+</div>
+<div id="bes-guide-to-reproducible-code" class="section level2">
+<h2>BES guide to reproducible code</h2>
+<p><img src="https://methodsblog.files.wordpress.com/2017/12/code-cover.jpg?w=424&h=600" height=300px></p>
+<p>A Guide to Reproducible Code covers all the basic tools and information you will need to start making your code more reproducible. We focus on R and Python, but many of the tips apply to any programming language.</p>
+<div id="download-1" class="section level4">
+<h4><a href="https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf">download</a></h4>
+<hr />
+</div>
+<div id="further-reading" class="section level3">
+<h3>Further reading</h3>
+<ul>
+<li><a href="https://dynamicecology.wordpress.com/2016/08/22/ten-commandments-for-good-data-management/"><strong>Blog post</strong></a> <strong>by Dynamic ecology</strong> <a href="https://twitter.com/DynamicEcology">@DynamicEcology</a></li>
+<li><a href="http://ropensci.github.io/reproducibility-guide/"><strong>rOpenSci Reproducibility in Science:</strong> A Guide to enhancing reproducibility in scientific results and writing</a></li>
+<li><a href="http://ojs.library.queensu.ca/index.php/IEE/article/view/4608/4898"><strong>Nine simple ways to make it easier to (re)use your data</strong></a></li>
 </ul>
 <hr />
 </div>
 </div>
-<div id="schedule" class="section level1">
-<h1>Schedule</h1>
-<div id="day-1" class="section level2">
-<h2>Day 1</h2>
-<div id="introduction" class="section level3">
-<h3>Introduction</h3>
-</div>
-<div id="research-data-management" class="section level3">
-<h3>Research Data Management</h3>
+<div id="training-materials" class="section level2">
+<h2>Training materials</h2>
+<p><strong>The Carpentries</strong></p>
 <ul>
-<li>Data Hygiene</li>
-<li>Metadata</li>
-</ul>
-</div>
-<div id="research-code-management" class="section level3">
-<h3>Research Code Management</h3>
-<div id="literate-programming" class="section level4">
-<h4>Literate Programming</h4>
+<li><strong>Domain specific lessons in Software &amp; Data available</strong> <a href="https://carpentries.org/"><strong>free online</strong></a>
 <ul>
-<li>Intoduction to long form documentation in <code>Rmarkdown</code></li>
+<li>Ecology materials</li>
+<li>Genomics materials</li>
+<li>Geospatial data materials</li>
+<li>Biology semester long materials</li>
+</ul></li>
 </ul>
+<hr />
 </div>
-<div id="managing-projects" class="section level4">
-<h4>Managing projects</h4>
+<div id="go-further" class="section level2">
+<h2>go further</h2>
+</div>
+<div id="coding" class="section level2">
+<h2>coding</h2>
+<blockquote class="twitter-tweet" data-conversation="none" data-lang="en">
+<p lang="en" dir="ltr">
+<a href="https://twitter.com/tomjwebb"><span class="citation">@tomjwebb</span></a> agree very much with <a href="https://twitter.com/ucfagls"><span class="citation">@ucfagls</span></a>. Early investment in programming skills pays off in the future in terms of speed &amp; reproducibility.
+</p>
+— Susan Johnston (<span class="citation">@SuseJohnston</span>) <a href="https://twitter.com/SuseJohnston/status/556110171483947008">January 16, 2015</a>
+</blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<hr />
 <ul>
-<li>Version control</li>
-<li>Sharing code</li>
-<li>Collaborating on code</li>
+<li><h4 id="software-carpentry-r-for-reproducible-scientific-analysis"><a href="http://swcarpentry.github.io/r-novice-gapminder/">software carpentry: R for Reproducible Scientific Analysis</a></h4></li>
 </ul>
-</div>
-</div>
-</div>
-<div id="day-2" class="section level2">
-<h2>Day 2</h2>
-<div id="packaging-code" class="section level4">
-<h4>Packaging code</h4>
+<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/3802/large/1421543874/software-carpentry.png" /></p>
 <ul>
-<li>Writing &amp; documenting functions</li>
-<li>Capturing metadata incl. dependencies</li>
-<li>Checking &amp; Testing functions</li>
+<li><h4 id="an-introduction-to-reproducible-research-in-r-and-r-studio."><a href="https://susanejohnston.wordpress.com/category/reproducible-research/">An Introduction to Reproducible Research in R and R Studio.</a></h4></li>
+<li><h4 id="research-data-management-rdm-open-training-materials-on-zenodo">Research data management (RDM) open training materials on <a href="https://zenodo.org/communities/dcc-rdm-training-materials/?page=1&amp;size=20">Zenodo</a></h4></li>
+<li><h4 id="coursera-reproducible-research-mooc">Coursera Reproducible Research <a href="https://www.coursera.org/learn/reproducible-research">MOOC</a></h4></li>
 </ul>
+<hr />
 </div>
-<div id="putting-it-all-together-a-research-compendium" class="section level4">
-<h4>Putting it all together: a Research Compendium</h4>
+<div id="seek-support" class="section level2">
+<h2>seek support</h2>
+<p><br></p>
 <ul>
-<li>Creating a research compendium</li>
+<li><h4 id="your-supervisor-research-group-acce-peers">Your supervisor / research group /ACCE peers</h4></li>
+<li><h4 id="institutional-research-data-management-teams">Institutional Research Data Management Teams</h4>
+<ul>
+<li><a href="http://www.york.ac.uk/rdm" class="uri">http://www.york.ac.uk/rdm</a></li>
+<li><a href="https://www.sheffield.ac.uk/library/rdm" class="uri">https://www.sheffield.ac.uk/library/rdm</a></li>
+<li><a href="http://www.liv.ac.uk/research-data-management/" class="uri">http://www.liv.ac.uk/research-data-management/</a></li>
+</ul></li>
+<li><h4 id="nerc-data-centres-bodc-liverpool-eidc-ceh">NERC data centres (BODC Liverpool, EIDC CEH)</h4></li>
+<li><h4 id="ropensci-data-carpentry-figshare-dmptool">ROpenSci, Data Carpentry, Figshare, DMPTool…</h4></li>
 </ul>
+<hr />
 </div>
+<div id="publish-your-markdown-work-on-github" class="section level2">
+<h2>Publish your markdown work on GitHub!</h2>
+<p>Use <strong>Git</strong> and <strong>GitHub</strong> to manage, publish and collaborate on your work</p>
+<hr />
+</div>
+<div id="share-your-work" class="section level2">
+<h2>Share your work</h2>
+<ul>
+<li><p>Start a blog!</p>
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">
+Ready to start your data science blog? Check out <a href="https://twitter.com/ma_salmon?ref_src=twsrc%5Etfw"><span class="citation">@ma_salmon</span></a>'s excellent slides to help you figure out:<br><br>💭what you can write about, w/ examples. Hint: it's not just <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> code!<br>📝 how to get it done.<br>🗣️ where/how to share it.<a href="https://t.co/RpMOzU0Ntc">https://t.co/RpMOzU0Ntc</a>
+</p>
+— Emily Robinson (<span class="citation">@robinson_es</span>) <a href="https://twitter.com/robinson_es/status/977941365119176704?ref_src=twsrc%5Etfw">March 25, 2018</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></li>
+<li><p>Work openly</p></li>
+</ul>
+<hr />
+</div>
+<div id="keep-learning-with-others" class="section level2">
+<h2>Keep learning with others</h2>
+<ul>
+<li><strong>#R4DS slack <a href="https://medium.com/@kierisi/r4ds-the-next-iteration-d51e0a1b0b82">learning community</a></strong>. Sign up <a href="https://docs.google.com/forms/d/e/1FAIpQLSeT3zfzjWxoaQ6RmUEdT9n0xtvkuSaMeBetDQLpzNJvGUB6IQ/viewform"><strong>here</strong></a></li>
+<li><a href="https://www.meetup.com/SheffieldR-Sheffield-R-Users-Group/events/">Sheffield R Users group</a></li>
+</ul>
 </div>
 </div>
 
@@ -623,6 +739,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+</div>
+</div>
 
 </div>
 
