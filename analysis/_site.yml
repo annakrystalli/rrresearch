@@ -48,7 +48,7 @@ navbar:
     href: about.html
   right:
   - text: "Materials"
-  - icon: fa-cog
+    icon: fa-cog
     menu:
       - text: "Compendium"
         href: https://bit.ly/rrtools_wks
