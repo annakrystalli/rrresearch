@@ -13,7 +13,7 @@ navbar:
         href: 01_intro.html
       - text: "Managing Data"
       - text: "Basic Data Hygiene"
-        href: ../slides/02_RDM-intro.html
+        href: 02_RDM-intro.html
       - text: "Good filenaming"
         href: 03_filenaming.html
       - text: "Metadata"
