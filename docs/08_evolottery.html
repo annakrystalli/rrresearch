@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Practical: `GitHub` &amp; `Rstudio` for collaborative coding</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R for Reproducible Research</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-gear"></span>
+     
+    Day 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Welcome</li>
+    <li>
+      <a href="01_intro.html">Introduction</a>
+    </li>
+    <li class="dropdown-header">Managing Data</li>
+    <li>
+      <a href="02_RDM-intro.html">Basic Data Hygiene</a>
+    </li>
+    <li>
+      <a href="03_filenaming.html">Good filenaming</a>
+    </li>
+    <li>
+      <a href="04_metadata.html">Metadata</a>
+    </li>
+    <li>
+      <a href="http://annakrystalli.me/dataspice-tutorial/">Dataspice</a>
+    </li>
+    <li class="dropdown-header">Working with code</li>
+    <li>
+      <a href="05_literate-prog.html">Literate programming in Rmd</a>
+    </li>
+    <li>
+      <a href="06_git.html">Git &amp; GitHub through Rstudio</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-gear"></span>
+     
+    Day 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="07_collab_gh.html">Collaborative GitHub</a>
+    </li>
+    <li>
+      <a href="08_evoloterry.html">Evolottery</a>
+    </li>
+    <li>
+      <a href="10_pkg_functions.html">Packaging code</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="license.html">License</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Practical: <code>GitHub</code> &amp; <code>Rstudio</code> for collaborative coding</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-04-09
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rrresearch/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190216code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190216)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190216code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190216)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec3260c9cd67c19174a265293eba1cca3e25c67c6targetblankc3260c9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/c3260c9cd67c19174a265293eba1cca3e25c67c6" target="_blank">c3260c9</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec3260c9cd67c19174a265293eba1cca3e25c67c6targetblankc3260c9a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/assets/
+    Ignored:    assets/
+    Ignored:    data/metadata/
+    Ignored:    data/raw/
+    Ignored:    demos/demo-rmd-0_files/
+    Ignored:    demos/demo-rmd-1_files/
+    Ignored:    demos/demo-rmd_files/
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/assets/.DS_Store
+    Ignored:    docs/assets/img/.DS_Store
+    Ignored:    docs/demo-rmd-0_files/
+    Ignored:    docs/demo-rmd-1_files/
+    Ignored:    docs/demo-rmd-2_files/
+    Ignored:    docs/demo-rmd-3_files/
+    Ignored:    docs/demo-rmd_files/
+    Ignored:    docs/index-demo-pre_files/
+    Ignored:    slides/libs/
+
+Untracked files:
+    Untracked:  analysis/08_evolottery.Rmd
+    Untracked:  analysis/10_pkg_functions.Rmd
+    Untracked:  figure/
+    Untracked:  install.R
+    Untracked:  rmd/
+    Untracked:  slides/07_collab_gh.Rmd
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   render-other.R
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="welcome-to-the-evolutionary-lottery-of-skull-and-beak-morphology" class="section level1">
+<h1><strong>Welcome to the evolutionary lottery of skull and beak morphology</strong></h1>
+<div id="evolottery" class="section level2">
+<h2><strong>#EvoLottery</strong></h2>
+<hr />
+<p><br></p>
+<div id="beak-and-skull-shapes-in-birds-of-prey-raptors-are-strongly-coupled-and-largely-controlled-by-size." class="section level4">
+<h4><strong>Beak and skull shapes in birds of prey (“raptors”) are strongly coupled and largely controlled by size.</strong></h4>
+<ul>
+<li><p>In this exercise, each participant will <strong>fork a GitHub repo</strong>, and <strong>contribute a file</strong> required to simulate the <em>evolutionary trajectory of an imaginary species’ body size</em>.</p></li>
+<li><p>We’ll use <strong>GitHub to collate all species files</strong> and <strong>plot</strong> them all up together at the end! We’ll also <strong>discover the skull and beak shapes</strong> associated with each simulated species size.</p></li>
+</ul>
+</div>
+<div id="start" class="section level4">
+<h4>Start!</h4>
+</div>
+</div>
+<div id="clone-a-github-repo" class="section level2">
+<h2>💻 <strong>Clone a GitHub repo</strong></h2>
+<div id="start-with-github-repo" class="section level3">
+<h3>Start with GitHub repo</h3>
+<p><a href="https://GitHub.com/RSE-Sheffield/collaborative_GitHub_exercise" class="uri">https://GitHub.com/RSE-Sheffield/collaborative_GitHub_exercise</a></p>
+<p><img src="assets/repo.png" width="700px" /></p>
+</div>
+<div id="fork-it" class="section level3">
+<h3><strong>Fork it</strong></h3>
+<p>make your <strong>own copy of the repository</strong> on GitHub. Fork are linked and traceable</p>
+<p><img src="assets/fork-1.png" width="700px" /></p>
+<p>GitHub makes a <strong>copy into your account</strong></p>
+<p><img src="assets/fork-2.png" width="700px" /></p>
+<p><br></p>
+</div>
+<div id="clone-repo" class="section level3">
+<h3>🚦 <strong>Clone repo</strong></h3>
+<p><strong>copy repo link</strong> to create a new Rstudio project from the repository.</p>
+<p><img src="assets/fork-3.png" width="700px" /></p>
+</div>
+<div id="create-new-project-in-rstudio" class="section level3">
+<h3><strong>Create new project in Rstudio</strong></h3>
+<p><img src="assets/newproj-1.png" width="700px" /></p>
+<p>Checkout from <strong>version control repository</strong></p>
+<p><img src="assets/newproj-2.png" width="700px" /></p>
+<p>Clone project from a <strong>git</strong> repository</p>
+<p><img src="assets/newproj-3.png" width="700px" /></p>
+<p>Paste <strong>repo link copied from GitHub</strong> into <strong>Repository URL</strong> field. Click <strong><code>Create Project</code></strong>.</p>
+<p><img src="assets/newproj-4.png" width="700px" /></p>
+<p>Rstudio project now <strong>contains all files from the GitHub repo.</strong></p>
+<p><img src="assets/newproj-5.png" width="700px" /></p>
+</div>
+</div>
+</div>
+<div id="make-a-change-to-the-repo" class="section level1">
+<h1>🚦 <strong>Make a change to the repo</strong></h1>
+<div id="make-a-copy-of-params_tmpl.r" class="section level2">
+<h2>make a copy of <code>params_tmpl.R</code></h2>
+<p>open <strong><code>params/params_tmpl.R</code></strong></p>
+<p><img src="assets/edit-1.png" width="700px" /></p>
+<div class="inverse">
+<strong>SAVE AS NEW <code>.R</code> script in <code>params/</code> folder</strong>
+</div>
+<p>Use species name of your choice to name new file.</p>
+<div class="alert alert-warning">
+Please <strong><em>DO NOT OVERWRITE</em></strong> <strong><code>params/params_tmpl.R</code></strong>.
+</div>
+<p><img src="assets/edit-2.png" width="700px" /></p>
+</div>
+<div id="edit-file" class="section level2">
+<h2>🚦 Edit file</h2>
+<p>Edit file with parameters of your choice and save.</p>
+<p><img src="assets/edit-3.png" width="700px" /></p>
+<div id="the-parameters-each-participants-need-to-supply-are" class="section level3">
+<h3>The parameters each participants need to supply are:</h3>
+<ul>
+<li><p><strong><code>sig2</code>:</strong> A numeric value greater than 0 but smaller than 5</p></li>
+<li><p><strong><code>species.name</code>:</strong> a character string e.g. <code>&quot;anas_krystallinus&quot;</code>. Try to create a species name out of your name!</p></li>
+<li><p><strong><code>color</code>:</strong> a character string e.g. <code>&quot;red&quot;</code>, <code>&quot;#FFFFFF&quot;</code> (Check out list of <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf"><strong>colours in R</strong></a>)</p></li>
+</ul>
+<p><strong>NB: remember to save the changes to your file</strong></p>
+</div>
+</div>
+</div>
+<div id="commit-changes-locally-to-git" class="section level1">
+<h1>🚦 Commit changes locally to git</h1>
+<p>In the <em>git</em> tab, select the <strong>new file</strong> you created and click <strong><code>Commit</code></strong>.</p>
+<div class="alert alert-warning">
+Please <strong>ONLY COMMIT YOUR NEW FILE</strong>
+</div>
+<p><img src="assets/commit-1.png" width="700px" /></p>
+<p>Write an informative commit message and click <strong><code>Commit</code></strong></p>
+<p><img src="assets/commit-2.png" width="700px" /></p>
+<p>your new file has now been commited</p>
+<p><img src="assets/commit-3.png" width="700px" /></p>
+</div>
+<div id="push-changes-to-github" class="section level1">
+<h1>Push changes to GitHub</h1>
+<p>on the <em>git</em> tab click ⇧ to <strong>push changes to GitHub</strong></p>
+<p><img src="assets/push-1.png" width="700px" /></p>
+<p>changes have now been updated in the <strong>GitHub repo</strong></p>
+<p><img src="assets/push-2.png" width="700px" /></p>
+<hr />
+</div>
+<div id="create-pull-request" class="section level1">
+<h1>🚦 create pull request</h1>
+<p>In your repository, create <strong><code>new pull request</code></strong> to merge fork to master repo (ie the original repo you forked)</p>
+<p><img src="assets/merge-1.png" width="700px" /></p>
+<p>GitHub checks whether your requested merge creates any coflicts. If all is good, click on <strong><code>Create pull request</code></strong></p>
+<p><img src="assets/merge-2.png" width="700px" /></p>
+<p>Write an informative message explaining your changes to the master repo administrators. Click on <strong><code>Create pull request</code></strong></p>
+<p><img src="assets/merge-3.png" width="700px" /></p>
+<p>The repository owner will then review your PR and either merge it in or respond with some guidance if they spot a problem.</p>
+<p>Check original repo to see <strong>your merged changes</strong></p>
+<p><img src="assets/merged.png" width="700px" /></p>
+<p>We’ll merge all contributions and <a href="https://rse.shef.ac.uk/collaborative_github_exercise/plot_trait_evolution.html">plot them together at the end!</a></p>
+<br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>R version 3.5.2 (2018-12-20)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Mojave 10.14.3
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] workflowr_1.2.0   Rcpp_1.0.1        lubridate_1.7.4  
+ [4] emo_0.0.0.9000    crayon_1.3.4      assertthat_0.2.0 
+ [7] digest_0.6.18     rprojroot_1.3-2   backports_1.1.3  
+[10] git2r_0.24.0.9001 magrittr_1.5      evaluate_0.13    
+[13] rlang_0.3.1       stringi_1.3.1     rstudioapi_0.9.0 
+[16] fs_1.2.7          rmarkdown_1.12    tools_3.5.2      
+[19] stringr_1.4.0     glue_1.3.1        purrr_0.3.2      
+[22] xfun_0.5          yaml_2.2.0        compiler_3.5.2   
+[25] htmltools_0.3.6   knitr_1.22       </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
