@@ -48,6 +48,13 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - text: "Materials"
+    menu:
+      - text: "Compendium"
+        href: https://bit.ly/rrtools_wks
+  - icon: fa-github
+    href: https://github.com/annakrystalli/rrreserch
 output:
   workflowr::wflow_html:
     theme: flatly
