@@ -272,7 +272,7 @@ rmarkdown::render(input = "index.Rmd")
 ### install the packages we'll need
 
 ```{r, eval=FALSE}
-install.packages(c("ggplot2", "skimr", "dplyr", "plotly", "DT", "kableExtra"))
+install.packages(c("skimr",, "ggplot2",  "dplyr", "plotly", "DT"))
 ```
 
 
@@ -860,28 +860,7 @@ Provides a frictionless approach to displaying **summary statistics** that can b
 skimr::skim(airquality)
 ```
 
----
 
-### **Printing model summaries with `broom`**
-
-```{r}
-library(broom) # great for extracting model parameter summaries
-lm(lifeExp ~ gdpPercap, data = gapminder::gapminder) %>% 
-    broom::glance() %>% knitr::kable()
-```
-
----
-### HTML Tables with `knitr::kable` and `kableExtra`
-
-```{r}
-library(broom) # great for extracting model parameter summaries
-library(kableExtra)
-lm(lifeExp ~ gdpPercap, data = gapminder::gapminder) %>% 
-    broom::glance() %>% knitr::kable("html") %>%  kable_styling()
-```
-
-
-See `?kableExtra` for more
 ---
 
 ## `r emo::ji("computer")` Exercise Part 5
@@ -911,6 +890,8 @@ install.packages("gapminder")
 ---
 
 ## `r emo::ji("vertical_traffic_light")` plots
+
+
 
 
 ```{r}
