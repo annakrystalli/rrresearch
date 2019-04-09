@@ -1,0 +1,233 @@
+---
+title: "Packaging functionality"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+![](../assets/reproducible-data-analysis-19.jpg)
+
+
+```{r}
+# Hello, world!
+#
+# This is an example function named 'hello' 
+# which prints 'Hello, world!'.
+#
+# You can learn more about package authoring with RStudio at:
+#
+#   http://r-pkgs.had.co.nz/
+#
+# Some useful keyboard shortcuts for package authoring:
+#
+#   Build and Reload Package:  'Cmd + Shift + B'
+#   Check Package:             'Cmd + Shift + E'
+#   Test Package:              'Cmd + Shift + T'
+
+hello <- function() {
+  print("Hello, world!")
+}
+
+```
+
+
+```{r, eval=FALSE}
+library(devtools)
+install(".")
+```
+
+
+```{r, eval=FALSE}
+library("mypackage")
+```
+
+```{r}
+hello()
+```
+
+
+***
+
+## Roxygen documetation
+
+Used to control namespace and document functions
+
+First delete automatically generated `NAMESPACE` & `man`
+
+
+```{r, eval=FALSE}
+#' Title
+#'
+#' @return
+#' @export
+#'
+#' @examples
+hello <- function() {
+  print("Hello, world!")
+}
+
+```
+
+
+
+```{r}
+#' Hello World! 
+#'
+#' Print hello greeting
+#' @return prints hello greeting to console
+#' @export
+#'
+#' @examples
+#' hello()
+hello <- function() {
+  print("Hello, world!")
+}
+
+```
+
+
+
+```{r, tidy="styler"}
+#' Hello World!
+#'
+#' Print hello greeting
+#' @return prints hello greeting to console from me
+#' @export
+#'
+#' @examples
+#' hello()
+hello <- function() {
+  print("Hello, world from Anna")
+}
+hello()
+```
+
+
+```{r}
+#' Hello World!
+#'
+#' Print personalised hello greeting from me.
+#'
+#' @param name character string. Your name!
+#' @param ... additional arguments passed to `cowsay::say()`
+#'
+#' @return prints hello greeting to console
+#' @export
+#'
+#' @examples
+#' hello()
+#' hello("Lucy Elen")
+hello <- function(name = NULL, ...) {
+
+    if(is.null(name)){name <- "world"}
+    greeting <- paste("Hello", name, "from Anna!")
+
+    animal_names <- names(cowsay::animals)
+    i <- sample(1:length(animal_names), 1)
+
+    cowsay::say(greeting, animal_names[i], ...)
+}
+```
+
+
+***
+
+## Testing
+
+### create test file
+
+To create a new test file (and the testing framework if required), use function
+`usethis::use_test()`. It's good practice to name the test files after the `.R` files containing the functions being tested.
+
+```{r, eval=FALSE}
+use_test("hello")
+```
+
+```r
+✔ Setting active project to '/Users/Anna/Documents/workflows/workshops/materials/mypackage'
+✔ Adding 'testthat' to Suggests field in DESCRIPTION
+✔ Creating 'tests/testthat/'
+✔ Writing 'tests/testthat.R'
+✔ Writing 'tests/testthat/test-hello.R'
+● Modify 'tests/testthat/test-hello.R'
+```
+
+This just created the following folders and files
+```
+tests
+├── testthat
+│   └── test-hello.R
+└── testthat.R
+
+1 directory, 2 files
+```
+
+When the tests are run (either through running `devtools::test()`, clicking on **More > Test Package** in the Build panel or `Cmd/Ctrl + Shift + T`), the code in each test script in directory `testthat` is run.
+
+
+
+It also added `testthat` to the suggested packages in the `DESCRIPTION` file. 
+
+```
+Suggests: 
+    testthat
+```
+That's because you don't need test that to run the functions in `mypackage`, but you do 
+if you want to run the tests.
+
+**`test-hello.R`**
+
+Let's load the library so we can explore the `testthat` testing framework
+
+```{r, message=FALSE}
+library(testthat)
+```
+
+
+```{r}
+context("test-hello")
+
+test_that("multiplication works", {
+  expect_equal(2 * 2, 4)
+})
+
+```
+
+
+If the test doesn't pass it throws an error
+
+```{r, error=TRUE}
+context("test-hello")
+
+test_that("multiplication works", {
+  expect_equal(2 * 2, 5)
+})
+
+```
+
+### write tests
+
+We'll write tests to ensure that when our function is given a certain set of arguments as input, it generates output that we know to be correct
+
+Let's create something to test against.
+
+The first thing to note, looking at the `say()` documentation is that it takes an argument `type` which allows us to specify the output we want. It defaults `message` which means the
+output of the function is returned as a message.
+
+We can therefore use `testthat::expect_message()`
+
+```{r, error=TRUE}
+context("test-hello")
+
+test_that("hello works", {
+  expect_message(hello())
+})
+
+```
+
+```{r}
+hello(type = "string") %>% dput()
+```
+
