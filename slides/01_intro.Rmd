@@ -345,7 +345,7 @@ collection."
 
 --
 
-- Please feel free if I use jargon you don't understand or need some clarification.  Questions are helpful for everyone! `r emo::ji("sparkles")`
+- Please feel to stop me if I use jargon you don't understand or need some clarification.  Questions are helpful for everyone! `r emo::ji("sparkles")`
 
 ---
 
