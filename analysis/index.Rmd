@@ -1,14 +1,12 @@
 ---
-title: "Home"
+title: "R for Reproducible Research"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
     toc: false
 ---
 
-Welcome to the **R for Reproducible Research** Resource site.
-
-## Description
+### Course description
 
 In order to **ensure robustness** of outputs and **maximise the benefits** of ACCE research to future researchers and society more generally, it is **important to share the underlying code and data**. But for sharing to have any impact, such materials need to be created **FAIR** (_findable, accessible, interoperable, reusable_), i.e. they must be adequately described, archived, and made discoverable to an appropriate standard. 
 
@@ -18,6 +16,8 @@ R and Rstudio tools and conventions offer a powerful framework for making modern
 
 
 This course focuses on **data and project management through R and Rstudio**, will introduce students to best practice and equip them with modern tools and techniques for managing data and computational workflows to their full potential. The course is designed to be relevant to students with a wide range of backgrounds, working with anything from relatively small sets of data collected from field or experimental observations, to those taking a more computational approach and bigger datasets.
+
+<br>
 
 ### By the end of the workshop, participants will be able to:
 
@@ -44,6 +44,7 @@ This course focuses on **data and project management through R and Rstudio**, wi
 
 ### Research Data Management 
 - Data Hygiene
+- Good filenaming
 - Metadata
 
 ### Research Code Management
@@ -51,12 +52,16 @@ This course focuses on **data and project management through R and Rstudio**, wi
 #### Literate Programming 
 - Intoduction to long form documentation in `Rmarkdown`
 
-#### Managing projects 
+#### Git & GitHub through Rstudio
 - Version control
 - Sharing code
-- Collaborating on code
+
 
 ## Day 2
+
+### Research Code Management
+#### Collaborative Git & GitHub
+- Collaborating on code
 
 #### Packaging code
 - Writing & documenting functions
@@ -67,4 +72,6 @@ This course focuses on **data and project management through R and Rstudio**, wi
 
 - Creating a research compendium
 
+***
 
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
