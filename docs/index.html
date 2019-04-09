@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>R for Reproducible Research</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -273,7 +273,7 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
+    <span class="fa fa-calendar"></span>
      
     Day 1
      
@@ -282,30 +282,61 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Welcome</li>
     <li>
-      <a href="01_intro.html">Introduction</a>
+      <a href="01_intro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Introduction
+      </a>
     </li>
     <li class="dropdown-header">Managing Data</li>
     <li>
-      <a href="02_RDM-intro.html">Basic Data Hygiene</a>
+      <a href="02_RDM-intro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Basic Data Hygiene
+      </a>
     </li>
     <li>
-      <a href="03_filenaming.html">Good filenaming</a>
+      <a href="03_filenaming.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Good filenaming
+      </a>
     </li>
     <li>
-      <a href="04_metadata.html">Metadata</a>
+      <a href="04_metadata.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Metadata
+      </a>
     </li>
     <li>
-      <a href="http://annakrystalli.me/dataspice-tutorial/">Dataspice</a>
+      <a href="http://annakrystalli.me/dataspice-tutorial/">
+        <span class="fa fa-laptop"></span>
+         
+        Practical Data management: Dataspice
+      </a>
     </li>
     <li class="dropdown-header">Working with code</li>
     <li>
-      <a href="05_literate-prog.html">Literate programming in Rmd</a>
+      <a href="05_literate-prog.html">
+        <span class="fa fa-laptop"></span>
+         
+        Literate programming in Rmd
+      </a>
+    </li>
+    <li>
+      <a href="06_git.html">
+        <span class="fa fa-laptop"></span>
+         
+        Git &amp; GitHub through Rstudio
+      </a>
     </li>
   </ul>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-gear"></span>
+    <span class="fa fa-calendar"></span>
      
     Day 2
      
@@ -313,7 +344,25 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="10_pkg_functions.html">Packaging code</a>
+      <a href="07_collab_gh.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Collaborative GitHub
+      </a>
+    </li>
+    <li>
+      <a href="08_evoloterry.html">
+        <span class="fa fa-laptop"></span>
+         
+        Evolottery
+      </a>
+    </li>
+    <li>
+      <a href="10_pkg_functions.html">
+        <span class="fa fa-laptop"></span>
+         
+        Packaging code
+      </a>
     </li>
   </ul>
 </li>
@@ -342,14 +391,14 @@ div.section {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">R for Reproducible Research</h1>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -358,7 +407,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -370,7 +419,7 @@ div.section {
 <strong>Last updated:</strong> 2019-04-09
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>rrresearch/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -386,22 +435,22 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec3260c9cd67c19174a265293eba1cca3e25c67c6targetblankc3260c9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/c3260c9cd67c19174a265293eba1cca3e25c67c6" target="_blank">c3260c9</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec534ba500162a9d832a5dac7641287bee5745748targetblankc534ba5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/c534ba500162a9d832a5dac7641287bee5745748" target="_blank">c534ba5</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec3260c9cd67c19174a265293eba1cca3e25c67c6targetblankc3260c9a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreec534ba500162a9d832a5dac7641287bee5745748targetblankc534ba5a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -428,13 +477,16 @@ Ignored files:
     Ignored:    docs/demo-rmd-3_files/
     Ignored:    docs/demo-rmd_files/
     Ignored:    docs/index-demo-pre_files/
+    Ignored:    figure/
+    Ignored:    install.R
+    Ignored:    rmd/
     Ignored:    slides/libs/
 
-Untracked files:
-    Untracked:  analysis/10_pkg_functions.Rmd
-    Untracked:  figure/
-    Untracked:  install.R
-    Untracked:  rmd/
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   analysis/about.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   render-other.R
 
 </code></pre>
 <p>
@@ -565,13 +617,14 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<p>Welcome to the <strong>R for Reproducible Research</strong> Resource site.</p>
-<div id="description" class="section level2">
-<h2>Description</h2>
+<div id="course-description" class="section level3">
+<h3>Course description</h3>
 <p>In order to <strong>ensure robustness</strong> of outputs and <strong>maximise the benefits</strong> of ACCE research to future researchers and society more generally, it is <strong>important to share the underlying code and data</strong>. But for sharing to have any impact, such materials need to be created <strong>FAIR</strong> (<em>findable, accessible, interoperable, reusable</em>), i.e. they must be adequately described, archived, and made discoverable to an appropriate standard.</p>
 <p>Additionally, if analyses are to be deemed robust, they <strong>must be at the very least reproducible</strong>, but ideally well documented and reviewable.</p>
 <p>R and Rstudio tools and conventions offer a powerful framework for making modern, open, reproducible and collaborative computational workflows more accessible to researchers.</p>
 <p>This course focuses on <strong>data and project management through R and Rstudio</strong>, will introduce students to best practice and equip them with modern tools and techniques for managing data and computational workflows to their full potential. The course is designed to be relevant to students with a wide range of backgrounds, working with anything from relatively small sets of data collected from field or experimental observations, to those taking a more computational approach and bigger datasets.</p>
+<p><br></p>
+</div>
 <div id="by-the-end-of-the-workshop-participants-will-be-able-to" class="section level3">
 <h3>By the end of the workshop, participants will be able to:</h3>
 <ul>
@@ -584,7 +637,6 @@ Start workflowr project.
 </ul>
 <hr />
 </div>
-</div>
 <div id="schedule" class="section level1">
 <h1>Schedule</h1>
 <div id="day-1" class="section level2">
@@ -596,6 +648,7 @@ Start workflowr project.
 <h3>Research Data Management</h3>
 <ul>
 <li>Data Hygiene</li>
+<li>Good filenaming</li>
 <li>Metadata</li>
 </ul>
 </div>
@@ -607,18 +660,25 @@ Start workflowr project.
 <li>Intoduction to long form documentation in <code>Rmarkdown</code></li>
 </ul>
 </div>
-<div id="managing-projects" class="section level4">
-<h4>Managing projects</h4>
+<div id="git-github-through-rstudio" class="section level4">
+<h4>Git &amp; GitHub through Rstudio</h4>
 <ul>
 <li>Version control</li>
 <li>Sharing code</li>
-<li>Collaborating on code</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="day-2" class="section level2">
 <h2>Day 2</h2>
+<div id="research-code-management-1" class="section level3">
+<h3>Research Code Management</h3>
+<div id="collaborative-git-github" class="section level4">
+<h4>Collaborative Git &amp; GitHub</h4>
+<ul>
+<li>Collaborating on code</li>
+</ul>
+</div>
 <div id="packaging-code" class="section level4">
 <h4>Packaging code</h4>
 <ul>
@@ -632,6 +692,9 @@ Start workflowr project.
 <ul>
 <li>Creating a research compendium</li>
 </ul>
+<hr />
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
 </div>
 </div>
 </div>
