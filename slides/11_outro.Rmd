@@ -2,39 +2,29 @@
 title: "Closing Remarks"
 author: "ACCE Research Data and Project Management"
 date: "01-02 May 2018, TUoS"
-output: 
+output:
   xaringan::moon_reader:
-    css: ["default", "../assets/css/little_ak.css", "../assets/css/little_ak-fonts.css"]
-    lib_dir: libs
+    css: ["default", "assets/css/little_ak.css", "assets/css/little_ak-fonts.css"]
+    lib_dir: "../docs/libs"
+    seal: false
     nature:
       beforeInit: "https://platform.twitter.com/widgets.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-  html_document:
-    toc: true
-    toc_float: true
-    theme: flatly
-    highlight: textmate
 ---
+class: top, right, inverse
 
 
-<script>window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return t;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
+## ACCE Research Data and Project Management
 
-  t._e = [];
-  t.ready = function(f) {
-    t._e.push(f);
-  };
+***
 
-  return t;
-}(document, "script", "twitter-wjs"));</script>
+.bottom[
+# Closing Remarks
+#### 10-11 April 2019, University of Sheffield
+#### Dr Anna Krystalli @annakrystalli
+]
 
 ---
 
@@ -45,13 +35,6 @@ output:
 - #### Iterate on your process. Every little helps
 
 - #### What works? What makes using data easy, what makes it painful?
-
-- #### What simple steps are most helpful?
-    - standard taxonomies
-    - controlled vocabularies
-    - tidy data
-    - simple format
-    - etc. etc.
 
 ---
 
@@ -155,7 +138,7 @@ A Guide to enhancing reproducibility in scientific results and writing](http://r
     - https://www.sheffield.ac.uk/library/rdm
     - http://www.liv.ac.uk/research-data-management/
 - #### NERC data centres (BODC Liverpool, EIDC CEH)
-- #### ROpenSci, Data Carpentry, Figshare, DMPTool...
+- #### ROpenSci, Rladies, R4DS Learning community, theh Carpentries
 
 ---
 
