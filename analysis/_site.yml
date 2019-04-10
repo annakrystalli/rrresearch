@@ -47,8 +47,11 @@ navbar:
   - text: About
     href: about.html
   right:
+  - text: "Setup"
+    href: setup.html
+    icon: fa-toolbox
   - text: "Materials"
-    icon: fa-cog
+    icon: fa-cogs
     menu:
       - text: "Compendium"
         href: https://bit.ly/rrtools_wks

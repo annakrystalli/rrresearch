@@ -358,9 +358,17 @@ collection."
 Run this code in the console
 
 ```{r, eval=FALSE}
-install.packages("devtools", "tinytex", "rmarkdown", "usethis",
-                 "here", "tidyverse")
+install.packages(c("devtools", "tinytex", "rmarkdown", "usethis",
+                 "here", "tidyverse"))
+
 ```
+
+Once `tinytex` is installed, used it to install a minimal installation of LaTeX:
+
+```{r, eval=FALSE}
+tinytex::install_tinytex()
+```
+
 
 Some of these are large packages so it's best to get their installation going. If you have any installation problems, come see me at the next coffee break
 
