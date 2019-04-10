@@ -379,7 +379,7 @@ output:
     toc: true
     toc_float: true
     theme: cosmo
-    highlights: zenburn
+    highlight: zenburn
 ---
 ```
 ![](assets/demo-3.png)
