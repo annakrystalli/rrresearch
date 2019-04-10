@@ -541,7 +541,7 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="08_evoloterry.html">
+      <a href="08_evolottery.html">
         <span class="fa fa-laptop"></span>
          
         Evolottery
@@ -559,6 +559,13 @@ div.tocify {
         <span class="fa fa-laptop"></span>
          
         Creating a Research Compendium
+      </a>
+    </li>
+    <li>
+      <a href="11_outro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Closing Remarks
       </a>
     </li>
   </ul>
@@ -622,7 +629,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -631,7 +638,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -643,7 +650,7 @@ div.section {
 <strong>Last updated:</strong> 2019-04-10
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>rrresearch/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -659,12 +666,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -719,10 +726,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/4d1c8d8c389deee75b942c5e357cf3f6e3a351a8" target="_blank">4d1c8d8</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/a3cfb2c4f62e72d875e10e0a757d4f024faae2ea" target="_blank">a3cfb2c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -748,18 +755,14 @@ Ignored files:
     Ignored:    docs/demo-rmd-2_files/
     Ignored:    docs/demo-rmd-3_files/
     Ignored:    docs/demo-rmd_files/
+    Ignored:    docs/figure/10_compendium.Rmd/
     Ignored:    docs/index-demo-pre_files/
     Ignored:    figure/
     Ignored:    install.R
     Ignored:    rmd/
     Ignored:    slides/libs/
 
-Untracked files:
-    Untracked:  analysis/09_pkg_functions.Rmd
-    Untracked:  analysis/10_compendium.Rmd
-
 Unstaged changes:
-    Deleted:    analysis/10_pkg_functions.Rmd
     Modified:   analysis/_site.yml
 
 </code></pre>
@@ -773,9 +776,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the R Markdown and HTML files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view them.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/a3cfb2c4f62e72d875e10e0a757d4f024faae2ea/docs/09_pkg_functions.html" target="_blank">a3cfb2c</a>
+</td>
+<td>
+annakrystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+update navmenu
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/annakrystalli/rrresearch/blob/ed954cd5803bf9f7e9793cc8e1a0cb99238f5d32/analysis/09_pkg_functions.Rmd" target="_blank">ed954cd</a>
+</td>
+<td>
+annakrystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+rename and add pkg functionality
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -1436,16 +1499,16 @@ other attached packages:
 [1] testthat_2.0.1
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.1        knitr_1.22        magrittr_1.5     
- [4] workflowr_1.2.0   R6_2.4.0          rlang_0.3.4      
- [7] stringr_1.4.0     tools_3.5.2       xfun_0.5         
-[10] cowsay_0.7.0      git2r_0.25.2.9000 htmltools_0.3.6  
-[13] fortunes_1.5-4    yaml_2.2.0        rprojroot_1.3-2  
-[16] digest_0.6.18     assertthat_0.2.0  crayon_1.3.4     
-[19] purrr_0.3.2       fs_1.2.7          rmsfact_0.0.3    
-[22] glue_1.3.1        evaluate_0.13     rmarkdown_1.12   
-[25] emo_0.0.0.9000    stringi_1.3.1     compiler_3.5.2   
-[28] backports_1.1.3   lubridate_1.7.4  </code></pre>
+ [1] Rcpp_1.0.1        knitr_1.22        whisker_0.3-2    
+ [4] magrittr_1.5      workflowr_1.2.0   R6_2.4.0         
+ [7] rlang_0.3.4       stringr_1.4.0     tools_3.5.2      
+[10] xfun_0.5          cowsay_0.7.0      git2r_0.25.2.9000
+[13] htmltools_0.3.6   fortunes_1.5-4    yaml_2.2.0       
+[16] rprojroot_1.3-2   digest_0.6.18     assertthat_0.2.0 
+[19] crayon_1.3.4      purrr_0.3.2       fs_1.2.7         
+[22] rmsfact_0.0.3     glue_1.3.1        evaluate_0.13    
+[25] rmarkdown_1.12    emo_0.0.0.9000    stringi_1.3.1    
+[28] compiler_3.5.2    backports_1.1.3   lubridate_1.7.4  </code></pre>
 </div>
 </div>
 </div>

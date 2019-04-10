@@ -39,7 +39,7 @@ navbar:
         href: 07_collab_gh.html
         icon: fa-caret-square-o-right
       - text: "Evolottery"
-        href: 08_evoloterry.html
+        href: 08_evolottery.html
         icon: fa-laptop
       - text: Packaging code
         href: 09_pkg_functions.html
