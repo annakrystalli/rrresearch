@@ -1,5 +1,5 @@
 ---
-title: Reproducible Research w/ rrtools 
+title: Creating a research compendium w/ rrtools
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
