@@ -548,10 +548,24 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="10_pkg_functions.html">
+      <a href="09_pkg_functions.html">
         <span class="fa fa-laptop"></span>
          
         Packaging code
+      </a>
+    </li>
+    <li>
+      <a href="10_compendium.html">
+        <span class="fa fa-laptop"></span>
+         
+        Creating a Research Compendium
+      </a>
+    </li>
+    <li>
+      <a href="11_outro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Closing Remarks
       </a>
     </li>
   </ul>
@@ -712,10 +726,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree630bd6bf5f327a6128756f4efb95d5a6d53a081ctargetblank630bd6ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/630bd6bf5f327a6128756f4efb95d5a6d53a081c" target="_blank">630bd6b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/4d1c8d8c389deee75b942c5e357cf3f6e3a351a8" target="_blank">4d1c8d8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree630bd6bf5f327a6128756f4efb95d5a6d53a081ctargetblank630bd6ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -741,6 +755,7 @@ Ignored files:
     Ignored:    docs/demo-rmd-2_files/
     Ignored:    docs/demo-rmd-3_files/
     Ignored:    docs/demo-rmd_files/
+    Ignored:    docs/figure/10_compendium.Rmd/
     Ignored:    docs/index-demo-pre_files/
     Ignored:    figure/
     Ignored:    install.R
@@ -748,11 +763,14 @@ Ignored files:
     Ignored:    slides/libs/
 
 Untracked files:
-    Untracked:  analysis/setup.Rmd
+    Untracked:  analysis/09_pkg_functions.Rmd
+    Untracked:  analysis/10_compendium.Rmd
+    Untracked:  slides/11_outro.Rmd
 
 Unstaged changes:
+    Deleted:    analysis/10_pkg_functions.Rmd
     Modified:   analysis/_site.yml
-    Modified:   slides/01_intro.Rmd
+    Deleted:    analysis/outro.Rmd
 
 </code></pre>
 <p>
@@ -791,6 +809,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/3bf423c73c98c16842ad2c0c36190410ce97fb86/docs/08_evolottery.html" target="_blank">3bf423c</a>
+</td>
+<td>
+Anna Krystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+add setup
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1022,8 +1057,8 @@ loaded via a namespace (and not attached):
  [1] workflowr_1.2.0   Rcpp_1.0.1        lubridate_1.7.4  
  [4] emo_0.0.0.9000    crayon_1.3.4      assertthat_0.2.0 
  [7] digest_0.6.18     rprojroot_1.3-2   backports_1.1.3  
-[10] git2r_0.24.0.9001 magrittr_1.5      evaluate_0.13    
-[13] rlang_0.3.1       stringi_1.3.1     rstudioapi_0.9.0 
+[10] git2r_0.25.2.9000 magrittr_1.5      evaluate_0.13    
+[13] rlang_0.3.4       stringi_1.3.1     rstudioapi_0.10  
 [16] fs_1.2.7          whisker_0.3-2     rmarkdown_1.12   
 [19] tools_3.5.2       stringr_1.4.0     glue_1.3.1       
 [22] purrr_0.3.2       xfun_0.5          yaml_2.2.0       

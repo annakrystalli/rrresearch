@@ -42,8 +42,14 @@ navbar:
         href: 08_evoloterry.html
         icon: fa-laptop
       - text: Packaging code
-        href: 10_pkg_functions.html
+        href: 09_pkg_functions.html
         icon: fa-laptop
+      - text: Creating a Research Compendium
+        href: 10_compendium.html
+        icon: fa-laptop
+      - text: Closing Remarks
+        href: 11_outro.html
+        icon: fa-caret-square-o-right
   - text: About
     href: about.html
   right:

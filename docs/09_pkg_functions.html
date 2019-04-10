@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Packaging functionality</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R for Reproducible Research</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-calendar"></span>
+     
+    Day 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Welcome</li>
+    <li>
+      <a href="01_intro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Introduction
+      </a>
+    </li>
+    <li class="dropdown-header">Managing Data</li>
+    <li>
+      <a href="02_RDM-intro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Basic Data Hygiene
+      </a>
+    </li>
+    <li>
+      <a href="03_filenaming.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Good filenaming
+      </a>
+    </li>
+    <li>
+      <a href="04_metadata.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Metadata
+      </a>
+    </li>
+    <li>
+      <a href="http://annakrystalli.me/dataspice-tutorial/">
+        <span class="fa fa-laptop"></span>
+         
+        Practical Data management: Dataspice
+      </a>
+    </li>
+    <li class="dropdown-header">Working with code</li>
+    <li>
+      <a href="05_literate-prog.html">
+        <span class="fa fa-laptop"></span>
+         
+        Literate programming in Rmd
+      </a>
+    </li>
+    <li>
+      <a href="06_git.html">
+        <span class="fa fa-laptop"></span>
+         
+        Git &amp; GitHub through Rstudio
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-calendar"></span>
+     
+    Day 2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="07_collab_gh.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Collaborative GitHub
+      </a>
+    </li>
+    <li>
+      <a href="08_evoloterry.html">
+        <span class="fa fa-laptop"></span>
+         
+        Evolottery
+      </a>
+    </li>
+    <li>
+      <a href="09_pkg_functions.html">
+        <span class="fa fa-laptop"></span>
+         
+        Packaging code
+      </a>
+    </li>
+    <li>
+      <a href="10_compendium.html">
+        <span class="fa fa-laptop"></span>
+         
+        Creating a Research Compendium
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="setup.html">
+    <span class="fa fa-toolbox"></span>
+     
+    Setup
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-cogs"></span>
+     
+    Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://bit.ly/rrtools_wks">
+        <span class="fa fa-save"></span>
+         
+        Compendium
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/annakrystalli/rrreserch">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Packaging functionality</h1>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2019-04-10
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>rrresearch/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.2.0). The <em>Report</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="report" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20190216code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20190216)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20190216code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20190216)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/4d1c8d8c389deee75b942c5e357cf3f6e3a351a8" target="_blank">4d1c8d8</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/.DS_Store
+    Ignored:    analysis/assets/
+    Ignored:    assets/
+    Ignored:    data/metadata/
+    Ignored:    data/raw/
+    Ignored:    demos/demo-rmd-0_files/
+    Ignored:    demos/demo-rmd-1_files/
+    Ignored:    demos/demo-rmd_files/
+    Ignored:    docs/.DS_Store
+    Ignored:    docs/assets/.DS_Store
+    Ignored:    docs/assets/img/.DS_Store
+    Ignored:    docs/demo-rmd-0_files/
+    Ignored:    docs/demo-rmd-1_files/
+    Ignored:    docs/demo-rmd-2_files/
+    Ignored:    docs/demo-rmd-3_files/
+    Ignored:    docs/demo-rmd_files/
+    Ignored:    docs/index-demo-pre_files/
+    Ignored:    figure/
+    Ignored:    install.R
+    Ignored:    rmd/
+    Ignored:    slides/libs/
+
+Untracked files:
+    Untracked:  analysis/09_pkg_functions.Rmd
+    Untracked:  analysis/10_compendium.Rmd
+
+Unstaged changes:
+    Deleted:    analysis/10_pkg_functions.Rmd
+    Modified:   analysis/_site.yml
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="r-package-structure" class="section level2">
+<h2>R Package Structure</h2>
+<p>Used to share functionality with the R community</p>
+<ul>
+<li><p>Useful <strong>conventions</strong></p></li>
+<li><p>Useful <strong>software development tools</strong></p></li>
+<li><p>Easy <strong>publishing</strong> through GitHub</p></li>
+</ul>
+<hr />
+</div>
+<div id="r-package-conventions" class="section level2">
+<h2>R Package conventions:</h2>
+<ul>
+<li><p><strong>metadata</strong>: in the <strong><code>DESCRIPTION</code> file</strong></p></li>
+<li><p><strong>functions</strong> in <strong><code>.R</code> scripts</strong> in the <strong><code>R/</code> folder</strong></p></li>
+<li><p><strong>tests</strong> in the <strong><code>tests/</code> folder</strong></p></li>
+<li><strong>Documentation:</strong>
+<ul>
+<li><em>functions</em> using <strong>Roxygen notation</strong></li>
+<li><em>workflows</em> using <strong><code>.Rmd</code> documents</strong> in the <strong><code>vignettes/</code></strong> folder</li>
+</ul></li>
+</ul>
+<hr />
+</div>
+<div id="software-engineering-approach" class="section level2">
+<h2>Software Engineering approach</h2>
+<p>Following conventions allows us to <strong>make use of automated tools</strong> for:</p>
+<ul>
+<li><p><strong>Checking</strong> and <strong>testing code</strong></p></li>
+<li><p><strong>Producing documentation</strong> for code and workflows</p></li>
+<li><p><strong>Publishing, distributing</strong> and <strong>citing</strong> code</p></li>
+</ul>
+<hr />
+</div>
+<div id="anatomy-of-an-r-package" class="section level1">
+<h1>Anatomy of an R package</h1>
+<p>Let’s use <a href="https://github.com/ropenscilabs/pkgreviewr"><code>pkgreviewr</code></a>, a package I authored to help automate some aspects of the rOpenSci review process, as an example to examine some elements of what makes a package:</p>
+<div id="description-file" class="section level2">
+<h2><code>DESCRIPTION</code> file</h2>
+<p>Capture metadata around the package - Functionality description - Creators - License</p>
+<pre><code>Package: pkgreviewr
+Type: Package
+Title: rOpenSci package review project template
+Version: 0.1.1
+Authors@R: c(person(&quot;Anna&quot;, &quot;Krystalli&quot;, email = &quot;annakrystalli@googlemail.com&quot;,
+                  role = c(&quot;aut&quot;, &quot;cre&quot;)),
+             person(&quot;Maëlle&quot;, &quot;Salmon&quot;, email = &quot;maelle.salmon@yahoo.se&quot;, role = &quot;aut&quot;))
+Description: Creates files and collects materials necessary to complete an rOpenSci package review. 
+    Review files are prepopulated with review package specific metadata. Review package source code is
+    also cloned for local testing and inspection.
+License: GPL-3 + file LICENSE
+URL: https://github.com/ropenscilabs/pkgreviewr
+BugReports: https://github.com/ropenscilabs/pkgreviewr/issues
+Encoding: UTF-8
+LazyData: true
+Imports:
+    devtools,
+    git2r (&gt;= 0.23.0),
+    usethis (&gt;= 1.2.0),
+    here,
+    reprex,
+    gh,
+    base64enc,
+    whoami,
+    magrittr,
+    covr,
+    goodpractice,
+    assertthat,
+    httr,
+    rstudioapi,
+    clipr,
+    clisymbols,
+    crayon,
+    dplyr,
+    glue,
+    fs,
+    urltools,
+    shiny
+Suggests: 
+    testthat,
+    mockery,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.1.1
+Remotes: 
+    ropensci/git2r
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+</code></pre>
+</div>
+<div id="dependency-management" class="section level2">
+<h2>Dependency management</h2>
+<p>It’s the job of the DESCRIPTION to <strong>list the packages that your package needs to work</strong>.</p>
+<pre><code>Imports:
+    devtools,
+    git2r (&gt;= 0.23.0),
+    usethis (&gt;= 1.2.0),
+    here,
+    reprex,
+    gh,
+    base64enc,
+    whoami,
+    magrittr,
+    covr,
+    goodpractice,
+    assertthat,
+    httr,
+    rstudioapi,
+    clipr,
+    clisymbols,
+    crayon,
+    dplyr,
+    glue,
+    fs,
+    urltools,
+    shiny</code></pre>
+<p>Imports are necessary dependencies for the functions in your package to work</p>
+<pre><code>Suggests: 
+    testthat,
+    mockery,
+    knitr,
+    rmarkdown</code></pre>
+<p>Suggests are dependencies that are not necessary for the functions in your package but might be neccessary to run all the vignettes or tests in your package</p>
+<hr />
+</div>
+<div id="r" class="section level2">
+<h2><code>R/</code></h2>
+<ul>
+<li>Keep all functions in R scripts in <code>R/</code> folder</li>
+</ul>
+<pre><code>.
+├── github.R
+├── pkgreview.R
+├── pkgreviewr-package.R
+├── render-templates.R
+├── rmd-utils.R
+├── style.R
+└── utils.R
+
+0 directories, 7 files</code></pre>
+<hr />
+<div id="example-function-script" class="section level3">
+<h3>example function script</h3>
+<p>Create a new function <code>.R</code> file in the <code>R/</code> folder</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(usethis)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">use_r</span>(<span class="st">&quot;add&quot;</span>)</a></code></pre></div>
+<pre><code>R
+└── add.R
+
+0 directories, 1 files</code></pre>
+</div>
+</div>
+<div id="tests" class="section level2">
+<h2><code>tests/</code></h2>
+<p>Tests provide confidence in what the code is doing.</p>
+<p><em>Contents of <code>pkgreviewr</code> test folder</em></p>
+<pre><code>.
+├── testthat
+│   ├── setup.R
+│   ├── test-create-pkgreview.R
+│   ├── test-gh-calls.R
+│   ├── test-render-templates.R
+│   └── test-setup.R
+└── testthat.R
+
+1 directory, 6 files</code></pre>
+<hr />
+<div id="example-test" class="section level3">
+<h3>Example test</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">use_test</span>(<span class="st">&quot;add&quot;</span>)</a></code></pre></div>
+<pre><code>tests
+├── testthat
+│   ├── test-add.R
+└── testthat.R</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">context</span>(<span class="st">&quot;test-add&quot;</span>)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw">test_that</span>(<span class="st">&quot;add works&quot;</span>, {</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">expect_equal</span>(<span class="kw">add</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">})</a></code></pre></div>
+<p>The <strong>R package structure</strong> can help with providing a logical organisation of files, by <strong>providing a set of standard locations for certain types of files</strong>.</p>
+<p>To work with packages in RStudio we use the <strong>Build pane</strong>, which includes a variety of tools for <strong>building, documenting and testing packages</strong>. This will appear if Rstudio recognises the project as an R package.</p>
+<p><img src="assets/build-panel.png" height="200px"></p>
+<p><img src="assets/reproducible-data-analysis-19.jpg" /></p>
+</div>
+</div>
+</div>
+<div id="create-your-first-package" class="section level1">
+<h1>Create your first package</h1>
+<p>Let’s go ahead and create our first package! We do that as we would any project, but this time we select <strong><code>R package</code></strong> instead of <code>New Project</code>. Call your package <code>mypackage</code>.</p>
+<div class="alert alert-info">
+<strong>File &gt; New Project… &gt; New Directory &gt; R package &gt; mypackage </strong>
+</div>
+<p>Your new project should have the following structure. The build pane should also be visible.</p>
+<pre><code>.
+├── DESCRIPTION
+├── NAMESPACE
+├── R
+│   └── hello.R
+├── man
+│   └── hello.Rd
+└── mypackage.Rproj
+
+2 directories, 5 files</code></pre>
+<div id="functions-in-the-r-dir" class="section level2">
+<h2>Functions in the <strong><code>R/</code></strong> dir</h2>
+<p>Let’s inspect <strong><code>hello.R</code></strong></p>
+<p>it contains a function that takes now arguments and prints <code>hello world</code> to the console when called. The comments above are just that, comments and don’t serve any functional purpose.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Hello, world!</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="co">#</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># This is an example function named &#39;hello&#39; </span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="co"># which prints &#39;Hello, world!&#39;.</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co">#</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="co"># You can learn more about package authoring with RStudio at:</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="co">#</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="co">#   http://r-pkgs.had.co.nz/</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="co"># Some useful keyboard shortcuts for package authoring:</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="co">#</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="co">#   Build and Reload Package:  &#39;Cmd + Shift + B&#39;</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co">#   Check Package:             &#39;Cmd + Shift + E&#39;</span></a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="co">#   Test Package:              &#39;Cmd + Shift + T&#39;</span></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb12-17" data-line-number="17">  <span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</a>
+<a class="sourceLine" id="cb12-18" data-line-number="18">}</a></code></pre></div>
+<div id="install-package." class="section level3">
+<h3>Install package.</h3>
+<p>You can install a package locally from it’s source code with function <code>install()</code></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">install</span>(<span class="st">&quot;.&quot;</span>)</a></code></pre></div>
+<p>You can now load it like any other package…</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">library</span>(<span class="st">&quot;mypackage&quot;</span>)</a></code></pre></div>
+<p>And use your function!</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">hello</span>()</a></code></pre></div>
+<pre><code>[1] &quot;Hello, world!&quot;</code></pre>
+<hr />
+</div>
+</div>
+<div id="roxygen-documentation" class="section level2">
+<h2>Roxygen documentation</h2>
+<p><a href="http://r-pkgs.had.co.nz/man.html"><code>Roxygen2</code></a> allows you to write specially-structured comments preceeding each function definition to document:</p>
+<ul>
+<li>the inputs and outputs</li>
+<li>a description of what it does</li>
+<li>an example of how to use it</li>
+</ul>
+<p>These are processed automatically to produce <code>.Rd</code> help files for your functions and control which functions are exported to the package <code>NAMESPACE</code>.</p>
+<p>Let’s document our example function. First, clear the demo comments above the function and all contents of the example<code>NAMESPACE</code>. Also delete the file in the <code>man</code> folder.</p>
+<div id="insert-roxygen-skeleton" class="section level3">
+<h3>Insert Roxygen skeleton</h3>
+<p>You can insert a Roxygen skeleton by placing the curson with a function and clicking:</p>
+<blockquote>
+<p><strong>Code &gt; Insert Roxygen Skeleton</strong></p>
+</blockquote>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">#&#39; Title</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">#&#39; @return</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">  <span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">}</a></code></pre></div>
+<div id="roxygen-basics" class="section level4">
+<h4>Roxygen basics</h4>
+<ul>
+<li><p><code>roxygen</code> notation indicated by <strong>beginning line with <code>#'</code></strong>.</p></li>
+<li><p><strong>First line</strong> will be the <strong>title</strong> for the function.</p></li>
+<li><p>After title, include a blank <code>#'</code> line and then write a <strong>longer description.</strong></p></li>
+<li><p><code>@param argument_name</code> <strong>description of the argument.</strong></p></li>
+<li><p><code>@return</code> description of <strong>what the function returns.</strong></p></li>
+<li><code>@export</code> tells <code>Roxygen2</code> to <strong>add this function to the <code>NAMESPACE</code></strong> file, so that it will be <strong>accessible to users.</strong></li>
+<li><p><code>@examples</code> allows to include example of how to use a function</p></li>
+</ul>
+</div>
+</div>
+<div id="complete-roxygen-documentation" class="section level3">
+<h3>Complete Roxygen documentation</h3>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">#&#39; Hello World! </span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co">#&#39; Print hello greeting</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co">#&#39; @return prints hello greeting to console</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8"><span class="co">#&#39; hello()</span></a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">}</a></code></pre></div>
+</div>
+<div id="create-documentation" class="section level3">
+<h3>Create documentation</h3>
+<p>Use function <code>devtools::document()</code> to create documentation. This re-creates a <code>hello.Rd</code> helpfile in the <code>man/</code> folder and populates the <code>NAMESPACE</code> with our functions</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">document</span>()</a></code></pre></div>
+<p>Click <strong>Install and Restart</strong> to re-install the package and make the documentation available.</p>
+<p><img src="assets/roxygen-done.png" /></p>
+<p>You can configure your build tools in the <strong>Global Options</strong> to automatically build documentation every time you <strong>Install &amp; Rebuild</strong></p>
+<p><img src="assets/conf-build-tools.png" /></p>
+</div>
+</div>
+<div id="personalise-function" class="section level2">
+<h2>Personalise function</h2>
+<p>Let’s go a step further and customise our function so that the greeting is from ourselves!</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">#&#39; Hello World!</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">#&#39; Print hello greeting</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">#&#39; @return prints hello greeting to console from me</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co">#&#39; hello()</span></a>
+<a class="sourceLine" id="cb20-9" data-line-number="9">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
+<a class="sourceLine" id="cb20-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;Hello, world from Anna&quot;</span>)</a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">}</a></code></pre></div>
+<div id="add-some-fun" class="section level3">
+<h3>Add some fun!</h3>
+<p>Programming is most useful for having fun. So let’s make our function extra fun!</p>
+<p>We’ll use package <code>cowsay</code></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;cowsay&quot;</span>)</a></code></pre></div>
+<p>which has a single function <code>say</code>, which does this…</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">cowsay<span class="op">::</span><span class="kw">say</span>(<span class="st">&quot;Say whaaaaaat?&quot;</span>, <span class="dt">by =</span> <span class="st">&quot;shark&quot;</span>)</a></code></pre></div>
+<pre><code>Colors cannot be applied in this environment :( Try using a terminal or RStudio.</code></pre>
+<pre><code>
+    
+ -------------- 
+Say whaaaaaat? 
+ --------------
+    \
+      \
+        \
+              /&quot;&quot;-._
+              .       &#39;-,
+               :          &#39;&#39;,
+                ;      *     &#39;.
+                 &#39; *         () &#39;.
+                   \               \
+                    \      _.---.._ &#39;.
+                    :  .&#39; _.--&#39;&#39;-&#39;&#39;  \ ,&#39;
+        .._           &#39;/.&#39;             . ;
+        ; `-.          ,                \&#39;
+         ;   `,         ;              ._\
+          ;    \     _,-&#39;                &#39;&#39;--._
+          :    \_,-&#39;                          &#39;-._
+          \ ,-&#39;                       .          &#39;-._
+          .&#39;         __.-&#39;&#39;;            \...,__       &#39;.
+        .&#39;      _,-&#39;        \              \   &#39;&#39;--.,__  &#39;\
+        /    _,--&#39; ;         \              ;           \^.}
+        ;_,-&#39; )     \  )\      )            ;
+             /       \/  \_.,-&#39;             ;
+            /                              ;
+         ,-&#39;  _,-&#39;&#39;&#39;-.    ,-.,            ;      PFA
+      ,-&#39; _.-&#39;        \  /    |/&#39;-._...--&#39;
+     :--``             )/
+  &#39;
+  </code></pre>
+<p>😜</p>
+<p>So let’s create a function that randomly chooses one of the animals available in <code>cowsay</code> to deliver the greeting, and also allow the user to customise who the recipient of the greeting is</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co">#&#39; Hello World!</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="co">#&#39; Print personalised hello greeting from me.</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="co">#&#39; @param name character string. Your name!</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"><span class="co">#&#39; @return prints hello greeting to console</span></a>
+<a class="sourceLine" id="cb25-8" data-line-number="8"><span class="co">#&#39; @export</span></a>
+<a class="sourceLine" id="cb25-9" data-line-number="9"><span class="co">#&#39;</span></a>
+<a class="sourceLine" id="cb25-10" data-line-number="10"><span class="co">#&#39; @examples</span></a>
+<a class="sourceLine" id="cb25-11" data-line-number="11"><span class="co">#&#39; hello()</span></a>
+<a class="sourceLine" id="cb25-12" data-line-number="12"><span class="co">#&#39; hello(&quot;Lucy Elen&quot;)</span></a>
+<a class="sourceLine" id="cb25-13" data-line-number="13">hello &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">name =</span> <span class="ot">NULL</span>) {</a>
+<a class="sourceLine" id="cb25-14" data-line-number="14">    </a>
+<a class="sourceLine" id="cb25-15" data-line-number="15">    <span class="co"># create greeting</span></a>
+<a class="sourceLine" id="cb25-16" data-line-number="16">    <span class="cf">if</span>(<span class="kw">is.null</span>(name)){name &lt;-<span class="st"> &quot;world&quot;</span>}</a>
+<a class="sourceLine" id="cb25-17" data-line-number="17">    greeting &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;Hello&quot;</span>, name, <span class="st">&quot;from Anna!&quot;</span>)</a>
+<a class="sourceLine" id="cb25-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb25-19" data-line-number="19">    <span class="co"># randomly sample an animal</span></a>
+<a class="sourceLine" id="cb25-20" data-line-number="20">    animal_names &lt;-<span class="st"> </span><span class="kw">names</span>(cowsay<span class="op">::</span>animals)</a>
+<a class="sourceLine" id="cb25-21" data-line-number="21">    i &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(animal_names), <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb25-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb25-23" data-line-number="23">    cowsay<span class="op">::</span><span class="kw">say</span>(greeting, animal_names[i])</a>
+<a class="sourceLine" id="cb25-24" data-line-number="24">}</a></code></pre></div>
+<p>Document, Install and restart to load our changes</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">hello</span>(<span class="st">&quot;y&#39;all&quot;</span>)</a></code></pre></div>
+<pre><code>Colors cannot be applied in this environment :( Try using a terminal or RStudio.</code></pre>
+<pre><code>
+
+ ----- 
+Hello y&#39;all from Anna! 
+ ------ 
+    \   
+     \
+    .ﾊ,,ﾊ
+    ( ﾟωﾟ)
+    |つ  つ
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    |    |
+    U &quot;  U
+        [BoingBoing]
+    </code></pre>
+</div>
+</div>
+</div>
+<div id="check-package-integrity" class="section level1">
+<h1>Check package integrity</h1>
+<p>An <strong>important part of the package development process is <code>R CMD check</code></strong>. <code>R CMD check</code> automatically <strong>checks your code</strong> and can <strong>automatically detects many common problems</strong> that we’d otherwise discover the hard way.</p>
+<p>To check our package, we can:</p>
+<ul>
+<li><p>use <code>devtools::check()</code></p></li>
+<li><p>press Ctrl/Cmd + Shift + E</p></li>
+<li><p>click on the ✅<strong>Check</strong> tab in the <strong>Build</strong> panel.</p></li>
+</ul>
+<p>This:</p>
+<ul>
+<li><p><strong>Ensures that the documentation is up-to-date</strong> by running <code>devtools::document()</code>.</p></li>
+<li><p><strong>Bundles the package</strong> before checking it.</p></li>
+</ul>
+<p>More info on <a href="http://r-pkgs.had.co.nz/check.html">checks</a> here.</p>
+<p><br></p>
+<p>Both these run <code>R CMD check</code> which <strong>return three types of messages</strong>:</p>
+<ul>
+<li><p><strong>ERRORs</strong>: Severe problems that you should fix regardless of whether or not you’re submitting to CRAN.</p></li>
+<li><p><strong>WARNINGs</strong>: Likely problems that you must fix if you’re planning to submit to CRAN (and a good idea to look into even if you’re not).</p></li>
+<li><p><strong>NOTEs</strong>: Mild problems. If you are submitting to CRAN, you should strive to eliminate all NOTEs, even if they are false positives.</p></li>
+</ul>
+<p>Let’s <strong>Check</strong> our package:</p>
+<p>Click on the <strong>Check</strong> button (📋 ✅)</p>
+<pre><code>   
+── R CMD check results ──────────────────────────────────── mypackage 0.1.0 ────
+Duration: 8.4s
+
+❯ checking DESCRIPTION meta-information ... WARNING
+  Non-standard license specification:
+    What license is it under?
+  Standardizable: FALSE
+
+❯ checking dependencies in R code ... WARNING
+  &#39;::&#39; or &#39;:::&#39; import not declared from: ‘cowsay’
+
+0 errors ✔ | 2 warnings ✖ | 0 notes ✔
+Error: R CMD check found WARNINGs
+Execution halted
+
+Exited with status 1.</code></pre>
+<p>Aha, so our checks have thrown up some warnings! First, it’s telling us we haven’t added a <code>LICENSE</code>. It’s also telling us that we have a dependency (import) from package <code>cowsay</code> which we haven’t documented in the <code>DESCRIPTION</code> file. <code>usethis</code> to the rescue!</p>
+<div id="add-dependencies" class="section level2">
+<h2>Add dependencies</h2>
+<p>Add <code>cowsay</code> as a dependency.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_package</span>(<span class="st">&quot;cowsay&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Setting active project to &#39;/Users/Anna/Desktop/mypackage&#39;
+✔ Adding &#39;cowsay&#39; to Imports field in DESCRIPTION
+● Refer to functions with `cowsay::fun()`</code></pre>
+</div>
+<div id="add-license" class="section level2">
+<h2>Add License</h2>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_mit_license</span>()</a></code></pre></div>
+<p><img src="assets/clear-checks.png" /></p>
+<p>Check again…All should be good!</p>
+<pre><code>── R CMD check results ──────────────────────────────────── mypackage 0.1.0 ────
+Duration: 9.3s
+
+0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+
+R CMD check succeeded</code></pre>
+<hr />
+</div>
+</div>
+<div id="add-test" class="section level1">
+<h1>Add Test</h1>
+<p><strong>Testing is a vital part of package development</strong>. It ensures that our code does what you want it to do.</p>
+<p>Once you’re set up with a testing framework, the workflow is simple:</p>
+<ol style="list-style-type: decimal">
+<li><p>Modify your code or tests.</p></li>
+<li><p>Test your package with Ctrl/Cmd + Shift + T or <code>devtools::test()</code>.</p></li>
+<li><p>Repeat until all tests pass.</p></li>
+</ol>
+<div id="create-test-file" class="section level2">
+<h2>create test file</h2>
+<p>To create a new test file (and the testing framework if required), use function <code>usethis::use_test()</code>. It’s good practice to name the test files after the <code>.R</code> files containing the functions being tested.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">use_test</span>(<span class="st">&quot;hello&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">✔ Setting active project to <span class="st">&#39;/Users/Anna/Documents/workflows/workshops/materials/mypackage&#39;</span></a>
+<a class="sourceLine" id="cb35-2" data-line-number="2">✔ Adding <span class="st">&#39;testthat&#39;</span> to Suggests field <span class="cf">in</span> DESCRIPTION</a>
+<a class="sourceLine" id="cb35-3" data-line-number="3">✔ Creating <span class="st">&#39;tests/testthat/&#39;</span></a>
+<a class="sourceLine" id="cb35-4" data-line-number="4">✔ Writing <span class="st">&#39;tests/testthat.R&#39;</span></a>
+<a class="sourceLine" id="cb35-5" data-line-number="5">✔ Writing <span class="st">&#39;tests/testthat/test-hello.R&#39;</span></a>
+<a class="sourceLine" id="cb35-6" data-line-number="6">● Modify <span class="st">&#39;tests/testthat/test-hello.R&#39;</span></a></code></pre></div>
+<p>This just created the following folders and files</p>
+<pre><code>tests
+├── testthat
+│   └── test-hello.R
+└── testthat.R
+
+1 directory, 2 files</code></pre>
+<p>It also added <code>testthat</code> to the suggested packages in the <code>DESCRIPTION</code> file.</p>
+<pre><code>Suggests: 
+    testthat</code></pre>
+<p>That’s because you don’t need test that to run the functions in <code>mypackage</code>, but you do if you want to run the tests.</p>
+<p>When the tests are run (either through running <code>devtools::test()</code>, clicking on <strong>More &gt; Test Package</strong> in the Build panel or <code>Cmd/Ctrl + Shift + T</code>), the code in each test script in directory <code>testthat</code> is run.</p>
+<p><strong><code>test-hello.R</code></strong></p>
+<p>Let’s load the library so we can explore the <code>testthat</code> testing framework</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">library</span>(testthat)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">context</span>(<span class="st">&quot;test-hello&quot;</span>)</a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="kw">test_that</span>(<span class="st">&quot;multiplication works&quot;</span>, {</a>
+<a class="sourceLine" id="cb39-4" data-line-number="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb39-5" data-line-number="5">})</a></code></pre></div>
+<p>If the test doesn’t pass it throws an error</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">context</span>(<span class="st">&quot;test-hello&quot;</span>)</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="kw">test_that</span>(<span class="st">&quot;multiplication works&quot;</span>, {</a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">  <span class="kw">expect_equal</span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb40-5" data-line-number="5">})</a></code></pre></div>
+<pre><code>Error: Test failed: &#39;multiplication works&#39;
+* 2 * 2 not equal to 5.
+1/1 mismatches
+[1] 4 - 5 == -1</code></pre>
+</div>
+<div id="write-test" class="section level2">
+<h2>Write test</h2>
+<p>Let’s write a simple test to check that we are getting an expected output type. The first thing to note, looking at the <code>say()</code> documentation is that it takes an argument <code>type</code> which allows us to specify the output we want. It defaults <code>message</code> which means the output of the function is returned as a message.</p>
+<p>We can therefore use <code>testthat::expect_message()</code></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">context</span>(<span class="st">&quot;test-hello&quot;</span>)</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="kw">test_that</span>(<span class="st">&quot;hello works&quot;</span>, {</a>
+<a class="sourceLine" id="cb42-4" data-line-number="4">  <span class="kw">expect_message</span>(<span class="kw">hello</span>())</a>
+<a class="sourceLine" id="cb42-5" data-line-number="5">})</a></code></pre></div>
+<p>Now let’s test our package</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">test</span>()</a></code></pre></div>
+<p>Success!</p>
+<pre><code>==&gt; devtools::test()
+
+Loading mypackage
+Testing mypackage
+✔ | OK F W S | Context
+✔ |  1       | test-hello
+
+══ Results ════════════════════════════════════════════════════════
+OK:       1
+Failed:   0
+Warnings: 0
+Skipped:  0</code></pre>
+</div>
+</div>
+<div id="complete-package-metadata" class="section level1">
+<h1>Complete package metadata</h1>
+<p>Let’s head to the <code>DESCRIPTION</code> file and complete the details.</p>
+<div id="authors" class="section level2">
+<h2>Authors</h2>
+<p>First let’s complete the authors. Remove the current author and maintainer lines and replace it with the following line:</p>
+<pre><code>Authors@R: person(&quot;First&quot;, &quot;Last&quot;, email = &quot;first.last@example.com&quot;, role = c(&quot;aut&quot;, &quot;cre&quot;))</code></pre>
+<p>completed with your own details</p>
+</div>
+<div id="add-a-title-and-description" class="section level2">
+<h2>Add a title and description</h2>
+<p>Complete the title and description fields with appropriate details. If you want to form a paragraph of text, make sure do indent the hanging lines by 4 spaces (one tab). And make sure that your Description field <strong>ends in a full-stop</strong>.</p>
+</div>
+<div id="add-a-date" class="section level2">
+<h2>Add a date</h2>
+<p>Use today’s date in ISO format, ie <code>2019-04-10</code>. This will populate a citation entry for us.</p>
+<div id="completed-description" class="section level3">
+<h3>Completed <code>DESCRIPTION</code></h3>
+<p>The complete <code>DESCRIPTION</code> file should look something like this:</p>
+<pre><code>Package: mypackage
+Type: Package
+Title: Customised greetings from me!
+Version: 0.1.0
+Authors@R: person(&quot;Anna&quot;, &quot;Krystalli&quot;, 
+  email = &quot;annakrystalli@googlemail.com&quot;, 
+  role = c(&quot;aut&quot;, &quot;cre&quot;))
+Description: Prints a customised greeting from myself, 
+    delivered by a friend.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports: 
+    cowsay
+Suggests: 
+    testthat
+Date: 2019-04-10</code></pre>
+<p>Check your package. If all is good, document, install and restart!</p>
+<p>Now, check you’re package’s citation:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">citation</span>(<span class="st">&quot;mypackage&quot;</span>)</a></code></pre></div>
+<pre><code>
+To cite package &#39;mypackage&#39; in publications use:
+
+  Anna Krystalli (2019). mypackage: Customised greetings from me!.
+  R package version 0.1.0.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {mypackage: Customised greetings from me!},
+    author = {Anna Krystalli},
+    year = {2019},
+    note = {R package version 0.1.0},
+  }</code></pre>
+</div>
+</div>
+</div>
+<div id="create-readme" class="section level1">
+<h1>Create README</h1>
+<p>The final document you will need for your package is a <code>README</code>.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_readme_rmd</span>()</a></code></pre></div>
+<pre><code>✔ Writing &#39;README.Rmd&#39;
+✔ Adding &#39;^README\\.Rmd$&#39; to &#39;.Rbuildignore&#39;
+● Modify &#39;README.Rmd&#39;
+✔ Writing &#39;.git/hooks/pre-commit&#39;</code></pre>
+<p>Because it’s an <code>.Rmd</code> but GitHub can only display an <code>md</code> document as it’s landing page, this is a special <code>.Rmd</code> that renders to a markdown document rather than <code>html</code>. The function adds a check to <code>.git</code> to ensure you commit an up to date version on the <code>md</code> when you commit changes to the <code>.Rmd</code>.</p>
+<p>Complete the README, including an example.</p>
+<div id="commit-and-push-to-github" class="section level2">
+<h2>Commit and push to GitHub</h2>
+<p>Now you have everything you need to share your package on GitHub.</p>
+<p>Anyone will be able to install it using, eg:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;annakrystalli/mypackage&quot;</span>)</a></code></pre></div>
+Check out my complete example <a href="https://github.com/annakrystalli/mypackage-demo">here</a> <br> <br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>R version 3.5.2 (2018-12-20)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Mojave 10.14.3
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] testthat_2.0.1
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.1        knitr_1.22        magrittr_1.5     
+ [4] workflowr_1.2.0   R6_2.4.0          rlang_0.3.4      
+ [7] stringr_1.4.0     tools_3.5.2       xfun_0.5         
+[10] cowsay_0.7.0      git2r_0.25.2.9000 htmltools_0.3.6  
+[13] fortunes_1.5-4    yaml_2.2.0        rprojroot_1.3-2  
+[16] digest_0.6.18     assertthat_0.2.0  crayon_1.3.4     
+[19] purrr_0.3.2       fs_1.2.7          rmsfact_0.0.3    
+[22] glue_1.3.1        evaluate_0.13     rmarkdown_1.12   
+[25] emo_0.0.0.9000    stringi_1.3.1     compiler_3.5.2   
+[28] backports_1.1.3   lubridate_1.7.4  </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

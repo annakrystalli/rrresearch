@@ -548,10 +548,24 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="10_pkg_functions.html">
+      <a href="09_pkg_functions.html">
         <span class="fa fa-laptop"></span>
          
         Packaging code
+      </a>
+    </li>
+    <li>
+      <a href="10_compendium.html">
+        <span class="fa fa-laptop"></span>
+         
+        Creating a Research Compendium
+      </a>
+    </li>
+    <li>
+      <a href="11_outro.html">
+        <span class="fa fa-caret-square-o-right"></span>
+         
+        Closing Remarks
       </a>
     </li>
   </ul>
@@ -712,10 +726,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree630bd6bf5f327a6128756f4efb95d5a6d53a081ctargetblank630bd6ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/630bd6bf5f327a6128756f4efb95d5a6d53a081c" target="_blank">630bd6b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/4d1c8d8c389deee75b942c5e357cf3f6e3a351a8" target="_blank">4d1c8d8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree630bd6bf5f327a6128756f4efb95d5a6d53a081ctargetblank630bd6ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree4d1c8d8c389deee75b942c5e357cf3f6e3a351a8targetblank4d1c8d8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -741,6 +755,7 @@ Ignored files:
     Ignored:    docs/demo-rmd-2_files/
     Ignored:    docs/demo-rmd-3_files/
     Ignored:    docs/demo-rmd_files/
+    Ignored:    docs/figure/10_compendium.Rmd/
     Ignored:    docs/index-demo-pre_files/
     Ignored:    figure/
     Ignored:    install.R
@@ -748,11 +763,14 @@ Ignored files:
     Ignored:    slides/libs/
 
 Untracked files:
-    Untracked:  analysis/setup.Rmd
+    Untracked:  analysis/09_pkg_functions.Rmd
+    Untracked:  analysis/10_compendium.Rmd
+    Untracked:  slides/11_outro.Rmd
 
 Unstaged changes:
+    Deleted:    analysis/10_pkg_functions.Rmd
     Modified:   analysis/_site.yml
-    Modified:   slides/01_intro.Rmd
+    Deleted:    analysis/outro.Rmd
 
 </code></pre>
 <p>
@@ -791,6 +809,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/3bf423c73c98c16842ad2c0c36190410ce97fb86/docs/06_git.html" target="_blank">3bf423c</a>
+</td>
+<td>
+Anna Krystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+add setup
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1333,14 +1368,14 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.1.0   dplyr_0.8.0.1   gapminder_0.3.0
+[1] ggplot2_3.1.1   dplyr_0.8.0.1   gapminder_0.3.0
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.1        compiler_3.5.2    pillar_1.3.1     
- [4] git2r_0.24.0.9001 plyr_1.8.4        workflowr_1.2.0  
+ [4] git2r_0.25.2.9000 plyr_1.8.4        workflowr_1.2.0  
  [7] tools_3.5.2       digest_0.6.18     lubridate_1.7.4  
-[10] evaluate_0.13     tibble_2.1.1      gtable_0.2.0     
-[13] pkgconfig_2.0.2   rlang_0.3.1       rstudioapi_0.9.0 
+[10] evaluate_0.13     tibble_2.1.1      gtable_0.3.0     
+[13] pkgconfig_2.0.2   rlang_0.3.4       rstudioapi_0.10  
 [16] yaml_2.2.0        xfun_0.5          emo_0.0.0.9000   
 [19] withr_2.1.2       stringr_1.4.0     knitr_1.22       
 [22] fs_1.2.7          rprojroot_1.3-2   grid_3.5.2       
@@ -1348,7 +1383,7 @@ loaded via a namespace (and not attached):
 [28] rmarkdown_1.12    purrr_0.3.2       magrittr_1.5     
 [31] whisker_0.3-2     backports_1.1.3   scales_1.0.0     
 [34] htmltools_0.3.6   assertthat_0.2.0  colorspace_1.4-0 
-[37] labeling_0.3      stringi_1.3.1     lazyeval_0.2.1   
+[37] labeling_0.3      stringi_1.3.1     lazyeval_0.2.2   
 [40] munsell_0.5.0     crayon_1.3.4     </code></pre>
 </div>
 </div>
