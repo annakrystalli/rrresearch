@@ -206,7 +206,7 @@ images: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstud
 ---
 
 
-# `rrtools`: Research Compendia in R
+## `rrtools`: Research Compendia in R
 
 > The goal of rrtools is to provide **instructions, templates, and functions** for making a **basic compendium** suitable for writing **reproducible research with R**.
 
@@ -231,7 +231,7 @@ images: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstud
 
 ***
 
-# Workshop materials
+# `r emo::ji("computer")` Workshop materials
 
 ## Data
 
@@ -343,7 +343,7 @@ We'll **use this as an opportunity to create a new research compendium using `rr
 ---
 
 
-# Create compendium
+# `r emo::ji("vertical_traffic_light")` Create compendium
 
 Now that we've got all the materials we need, let's start by ***creating a blank research compendium** for us to work in.
 
@@ -433,7 +433,7 @@ usethis::use_git()
 <br>
 
 
-### update description file
+## `r emo::ji("vertical_traffic_light")` Update `DESCRIPTION` file
 
 Let's **update some basic details in the `DESCRIPTION` file**:
 
@@ -569,51 +569,11 @@ Let's commit our work and move on to preparing our compendium for sharing on Git
 
 ***
 
-## Sharing a compendium on GitHub
+# `r emo::ji("vertical_traffic_light")`Sharing a compendium on GitHub
 
 <br>
 
-
-### Create GitHub repository
-
-Next, we'll **create a GitHub repository to share our compendium**. We'll make use of our `GITHUB_PAT` and go for `https` authentication. We can do this with function:
-
-```{r}
-usethis::use_github(protocol = "https")
-```
-
-```
-✔ Setting active project to '/Users/Anna/Documents/workflows/rrcompendium'
-● Check title and description
-  Name:        rrcompendium
-  Description: Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools
-  
-```
-The function will prompt you to confirm the name and description for your GitHub repo which it parses from our `DESCRIPTION` file. If everything looks good select the affirmative option.
-
-```
-Are title and description ok?
-1: Not now
-2: Definitely
-3: Nope
-
-```
-If creation of the repo was successfull you should see the following console output:
-
-```
-✔ Creating GitHub repository
-✔ Adding GitHub remote
-✔ Adding GitHub links to DESCRIPTION
-✔ Setting URL field in DESCRIPTION to 'https://github.com/annakrystalli/rrcompendium'
-✔ Setting BugReports field in DESCRIPTION to 'https://github.com/annakrystalli/rrcompendium/issues'
-✔ Pushing to GitHub and setting remote tracking branch
-✔ Opening URL https://github.com/annakrystalli/rrcompendium
-```
-
-
-<br>
-
-### Create README
+## Create README
 
 Every GitHub repository needs a `README` landing page.
 
@@ -706,11 +666,11 @@ The call also adds two other markdown files:
 
 <br>
 
-### update `README`
+## update `README`
 
 There's **five main edits** we need to make to the template:
 
-#### edit compendium DOI details
+### edit compendium DOI details
 
 Although we don't have a link to the DOI, we can complete the rest of the details and leave it as a place holder. 
 
@@ -720,7 +680,7 @@ This repository contains the data and code for our reproduction paper:
 > Krystalli, A, (2018). _Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools_.  <https://doi.org/{DOI-to-paper}>
 ```
 
-#### edit paper.pdf DOI
+### edit paper.pdf DOI
 
 ```
 Our reproduction pre-print is online here:
@@ -729,14 +689,14 @@ Our reproduction pre-print is online here:
 
 ```
 
-#### edit compendium citation
+### edit compendium citation
 ```
 Please cite this compendium as:
 
 > Krystalli, A, (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/{DOI-to-compendium}>
 ```
 
-#### update zip url
+### update zip url
 
 This is a link to download a zipped file of the repository. To update the template, just paste the url of your compendium repository like so:
 
@@ -746,7 +706,7 @@ This is a link to download a zipped file of the repository. To update the templa
 You can download the compendium as a zip from from this URL: <https://github.com/annakrystalli/rrcompendium/archive/master.zip>
 ```
 
-#### adjust data LICENSE
+### adjust data LICENSE
 
 Let's **adjust the data LICENSE to match the source compendium license**, which is CC-BY 4.0. Let's also add Carl Boettiger as copyright holder of the data.
 
@@ -757,10 +717,48 @@ Let's **adjust the data LICENSE to match the source compendium license**, which 
 
 **Data :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/), Copyright (c) 2018 Carl Boettiger.
 ```
+Remember to knit your `README.Rmd` to it's `.md` version.
 
 <br>
 
-### render README.md, commit and push to GitHub
+## `r emo::ji("vertical_traffic_light")` Create GitHub repository
+
+Next, we'll **create a GitHub repository to share our compendium**. We'll make use of our `GITHUB_PAT` and go for `https` authentication. We can do this with function:
+
+```{r}
+usethis::use_github(protocol = "https")
+```
+
+```
+✔ Setting active project to '/Users/Anna/Documents/workflows/rrcompendium'
+● Check title and description
+  Name:        rrcompendium
+  Description: Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools
+  
+```
+The function will prompt you to confirm the name and description for your GitHub repo which it parses from our `DESCRIPTION` file. If everything looks good select the affirmative option.
+
+```
+Are title and description ok?
+1: Not now
+2: Definitely
+3: Nope
+
+```
+If creation of the repo was successfull you should see the following console output:
+
+```
+✔ Creating GitHub repository
+✔ Adding GitHub remote
+✔ Adding GitHub links to DESCRIPTION
+✔ Setting URL field in DESCRIPTION to 'https://github.com/annakrystalli/rrcompendium'
+✔ Setting BugReports field in DESCRIPTION to 'https://github.com/annakrystalli/rrcompendium/issues'
+✔ Pushing to GitHub and setting remote tracking branch
+✔ Opening URL https://github.com/annakrystalli/rrcompendium
+```
+
+
+### Commit and push to GitHub
 
 #### We've now completed our `rrtools` `README.Rmd`! `r emo::ji("tada")`
 
@@ -799,12 +797,12 @@ and your project folder should contain:
 
 ***
 
-## Setting up the analysis folder
+# `r emo::ji("vertical_traffic_light")` Setting up the analysis folder
 
 <br>
 
 
-### Create `analysis`
+## Create `analysis`
 
 We now need an **analysis folder to contain our analysis and paper**. We can do this using function `rrtools::use_analysis()`
 
@@ -872,7 +870,7 @@ Regardless for `location` option, the contents of the created sub-directories ar
 
 Let's inspect
 
-#### `paper.Rmd`
+### `paper.Rmd`
 
 `paper.Rmd` is ready to write in and render with bookdown. It includes:
 
@@ -880,7 +878,7 @@ Let's inspect
 
 - a **colophon** that **adds some git commit details to the end of the document**. This means that the output file (HTML/PDF/Word) is always traceable to a specific state of the code.
         
-#### `references.bib`
+### `references.bib`
 
 The `references.bib` file has just one item to demonstrate the format. It is ready to insert more reference details.
 
@@ -890,7 +888,7 @@ We can replace the supplied `csl` file with a different citation style from <htt
 
 ***
 
-# Reproduce a paper in Rmd
+# `r emo::ji("vertical_traffic_light")` Reproduce a paper in Rmd
 
 In this section we're going to **create a literate programming document to reproduce the paper** in a format suitable for **journal submission** or as a **pre-print**. We'll do this using the course materials we downloaded. 
 
@@ -973,7 +971,7 @@ data %>%
 
 ***
 
-## Create journal article template using `rticles`
+## `r emo::ji("vertical_traffic_light")` Create journal article template using `rticles`
 
 The `rticles` package is designed to **simplify the creation of documents that conform to submission standards**. A suite of custom R Markdown templates for popular journals is provided by the package.
 
@@ -1026,7 +1024,7 @@ Let's open it up and start editing it.
 ***
 <br>
 
-## Update YAML
+## `r emo::ji("vertical_traffic_light")` Update YAML
 
 The **YAML header in `Paper.Rmd`** contains **document wide metadata** and is pre-populated with some fields relevant to an academic publication.
 
@@ -1115,7 +1113,7 @@ bibliography: refs.bib
 ```
 <br>
 
-### layout
+### `r emo::ji("vertical_traffic_light")` layout
 
 We can add an additional field called `layout` which specifies the **layout of the output** and takes the following values.
 
@@ -1143,7 +1141,7 @@ preamble: |
 ```
 <br>
 
-### abstract
+### `r emo::ji("vertical_traffic_light")` abstract
 
 This field should **contain the abstract**
 
@@ -1169,7 +1167,7 @@ output: rticles::elsevier_article
 
 ***
 
-## Add text
+## `r emo::ji("vertical_traffic_light")` Add text
 
 Now let's **add the main body of the paper from `paper.txt`**. 
 
@@ -1220,17 +1218,17 @@ Let's knit our document and have our first look at the resulting pdf by clicking
 
 <br>
 
-### Update references
+## `r emo::ji("vertical_traffic_light")` Update references
 
 Next we'll replace the flat citations in the text with real linked citation which can be used to **auto-generate formatted inline citations and the references section**.
 
-#### Insert formatted citations
+### Insert formatted citations
 
 We'll use the **`citr` package**, which provides functions and an RStudio addin to search a BibTeX-file to **create and insert formatted Markdown citations** into the current document.
 
 Once `citr` is installed and you have restarted your R session, the addin appears in the addin menu. The **addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter**.
 
-##### To insert a citation
+#### To insert a citation
 
 1. **Select text** to replace with a citation
 
@@ -1250,7 +1248,7 @@ Once `citr` is installed and you have restarted your R session, the addin appear
 
 <br>
 
-### Update math
+## `r emo::ji("vertical_traffic_light")` Update math
 
 For the sake of time today, and not to open this topic too deeply here, I've included the following **LaTex equation syntax** in the text:
 
@@ -1273,7 +1271,7 @@ Check [Math expressions](https://bookdown.org/yihui/rmarkdown/markdown-syntax.ht
 <br>
 
 
-#### update inline math
+### update inline math
 
 **Inline LaTeX equations and parameters** can be written **between a pair of dollar signs**  using the LaTeX syntax, e.g., `$f(x) = 1/x$` generates $f(x) = 1/x$.
 
@@ -1290,7 +1288,7 @@ Let's knit our document to **check our references and maths annotations** have b
 ***
 
 
-## Add code
+## `r emo::ji("vertical_traffic_light")` Add code
 
 Now that we've set up the text for our paper, let's **insert the code to generate figure 1.**
 
@@ -1331,7 +1329,7 @@ to suppress code, warnings and messages in the output, and
 
 to specify how figures will appear.
 
-#### add libraries
+### add libraries
 
 Copy and paste the **code for loading all the libraries from `analysis.R`**. Add library `rrcompendium` so we can access function `recode_system_size`. The `libraries` chunk should now look like so:
 
@@ -1393,7 +1391,7 @@ data %>%
 
 
 
-#### Add caption
+#### `r emo::ji("vertical_traffic_light")` Add caption
 
 Finally, let's update chunk `figure1` to **include a figure caption**. The text for the caption is at the bottom of `paper.txt`. We can include it in the chunk header through **chunk option `fig.cap`** like so:
 
@@ -1411,9 +1409,9 @@ Let's **check our final work by re-knitting to `pdf`**. You should be looking at
 
 ***
 
-## Add paper dependencies
+## `r emo::ji("vertical_traffic_light")` Add paper dependencies
 
-Finally, before we're finished, let's ensure the additional dependencies introduced in the paper are included. We can use `rrtools::add_dependencies_to_description()`
+Finally, before we're finished, let's ensure the dependencies introduced in the paper are included. We can use `rrtools::add_dependencies_to_description()`
 
 ```{r}
 rrtools::add_dependencies_to_description()

@@ -647,7 +647,7 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-04-10
+<strong>Last updated:</strong> 2019-04-11
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -726,10 +726,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/a3cfb2c4f62e72d875e10e0a757d4f024faae2ea" target="_blank">a3cfb2c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree115185a8e2907c7ce7a5c8d80c0f4d2470f47464targetblank115185aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/115185a8e2907c7ce7a5c8d80c0f4d2470f47464" target="_blank">115185a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree115185a8e2907c7ce7a5c8d80c0f4d2470f47464targetblank115185aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -764,7 +764,7 @@ Ignored files:
 
 Unstaged changes:
     Modified:   analysis/10_compendium.Rmd
-    Modified:   analysis/_site.yml
+    Modified:   render-other.R
 
 </code></pre>
 <p>
@@ -803,6 +803,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/115185a8e2907c7ce7a5c8d80c0f4d2470f47464/docs/10_compendium.html" target="_blank">115185a</a>
+</td>
+<td>
+annakrystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+correct evolottery link in navbar
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/annakrystalli/rrresearch/blob/695f0c69d6157a8c22db44dd74e64ba597af27e2/analysis/10_compendium.Rmd" target="_blank">695f0c6</a>
+</td>
+<td>
+annakrystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+change title
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1016,9 +1050,8 @@ add compendium
 </div>
 </div>
 </div>
-</div>
-<div id="rrtools-research-compendia-in-r" class="section level1">
-<h1><code>rrtools</code>: Research Compendia in R</h1>
+<div id="rrtools-research-compendia-in-r" class="section level2">
+<h2><code>rrtools</code>: Research Compendia in R</h2>
 <blockquote>
 <p>The goal of rrtools is to provide <strong>instructions, templates, and functions</strong> for making a <strong>basic compendium</strong> suitable for writing <strong>reproducible research with R</strong>.</p>
 </blockquote>
@@ -1039,8 +1072,9 @@ add compendium
 <p><br></p>
 <hr />
 </div>
+</div>
 <div id="workshop-materials" class="section level1">
-<h1>Workshop materials</h1>
+<h1>💻 Workshop materials</h1>
 <div id="data" class="section level2">
 <h2>Data</h2>
 <div id="on-github-httpsgithub.comannakrystallirrtools-wkshp-materials" class="section level4">
@@ -1124,7 +1158,7 @@ add compendium
 </div>
 </div>
 <div id="create-compendium" class="section level1">
-<h1>Create compendium</h1>
+<h1>🚦 Create compendium</h1>
 <p>Now that we’ve got all the materials we need, let’s start by *<strong>creating a blank research compendium</strong> for us to work in.</p>
 <p><br></p>
 <div id="load-library" class="section level3">
@@ -1179,8 +1213,8 @@ Next, you need to:  ↓ ↓ ↓
 <p><code>rrtools::create_compendium()</code> creates the <strong>bare backbone of infrastructure required for a research compendium</strong>. At this point it provides facilities to store general metadata about our compendium (eg bibliographic details to create a citation) and manage dependencies in the <code>DESCRIPTION</code> file and store and document functions in the <code>R/</code> folder. Together these allow us to <strong>manage, install and share functionality associated with our project</strong>.</p>
 <p><br></p>
 </div>
-<div id="update-description-file" class="section level3">
-<h3>update description file</h3>
+<div id="update-description-file" class="section level2">
+<h2>🚦 Update <code>DESCRIPTION</code> file</h2>
 <p>Let’s <strong>update some basic details in the <code>DESCRIPTION</code> file</strong>:</p>
 <pre><code>Package: rrcompendium
 Title: What the Package Does (One Line, Title Case)
@@ -1197,7 +1231,6 @@ Encoding: UTF-8
 LazyData: true
 </code></pre>
 <p><br></p>
-</div>
 <div id="title" class="section level3">
 <h3>Title</h3>
 <p>Let’s start with <strong>giving our compendium a descriptive title</strong>:</p>
@@ -1275,39 +1308,16 @@ LazyData: true
 <p><br></p>
 <hr />
 </div>
-<div id="sharing-a-compendium-on-github" class="section level2">
-<h2>Sharing a compendium on GitHub</h2>
-<p><br></p>
-<div id="create-github-repository" class="section level3">
-<h3>Create GitHub repository</h3>
-<p>Next, we’ll <strong>create a GitHub repository to share our compendium</strong>. We’ll make use of our <code>GITHUB_PAT</code> and go for <code>https</code> authentication. We can do this with function:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_github</span>(<span class="dt">protocol =</span> <span class="st">&quot;https&quot;</span>)</a></code></pre></div>
-<pre><code>✔ Setting active project to &#39;/Users/Anna/Documents/workflows/rrcompendium&#39;
-● Check title and description
-  Name:        rrcompendium
-  Description: Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools
-  </code></pre>
-<p>The function will prompt you to confirm the name and description for your GitHub repo which it parses from our <code>DESCRIPTION</code> file. If everything looks good select the affirmative option.</p>
-<pre><code>Are title and description ok?
-1: Not now
-2: Definitely
-3: Nope
-</code></pre>
-<p>If creation of the repo was successfull you should see the following console output:</p>
-<pre><code>✔ Creating GitHub repository
-✔ Adding GitHub remote
-✔ Adding GitHub links to DESCRIPTION
-✔ Setting URL field in DESCRIPTION to &#39;https://github.com/annakrystalli/rrcompendium&#39;
-✔ Setting BugReports field in DESCRIPTION to &#39;https://github.com/annakrystalli/rrcompendium/issues&#39;
-✔ Pushing to GitHub and setting remote tracking branch
-✔ Opening URL https://github.com/annakrystalli/rrcompendium</code></pre>
-<p><br></p>
 </div>
-<div id="create-readme" class="section level3">
-<h3>Create README</h3>
+</div>
+<div id="sharing-a-compendium-on-github" class="section level1">
+<h1>🚦Sharing a compendium on GitHub</h1>
+<p><br></p>
+<div id="create-readme" class="section level2">
+<h2>Create README</h2>
 <p>Every GitHub repository needs a <code>README</code> landing page.</p>
 <p>We can <strong>create an <code>rrtools</code> <code>README</code> template</strong> using:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">rrtools<span class="op">::</span><span class="kw">use_readme_rmd</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">rrtools<span class="op">::</span><span class="kw">use_readme_rmd</span>()</a></code></pre></div>
 <pre><code>
 ✔ Creating &#39;README.Rmd&#39; from template.
 ✔ Adding &#39;README.Rmd&#39; to `.Rbuildignore`.
@@ -1347,14 +1357,14 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-&gt; Authors, (YYYY). _Title of paper_. Name of journal/book, Accessed 10 Apr 2019. Online at &lt;https://doi.org/xxx/xxx&gt;
+&gt; Authors, (YYYY). _Title of paper_. Name of journal/book, Accessed 11 Apr 2019. Online at &lt;https://doi.org/xxx/xxx&gt;
 
 
 ### How to cite
 
 Please cite this compendium as:
 
-&gt; Authors, (2019). _Compendium of R code and data for &#39;Title of paper&#39;_. Accessed 10 Apr 2019. Online at &lt;https://doi.org/xxx/xxx&gt;
+&gt; Authors, (2019). _Compendium of R code and data for &#39;Title of paper&#39;_. Accessed 11 Apr 2019. Online at &lt;https://doi.org/xxx/xxx&gt;
 
 ### How to download or install
 
@@ -1381,49 +1391,73 @@ We welcome contributions from everyone. Before you get started, please see our [
 </ul>
 <p><br></p>
 </div>
-<div id="update-readme" class="section level3">
-<h3>update <code>README</code></h3>
+<div id="update-readme" class="section level2">
+<h2>update <code>README</code></h2>
 <p>There’s <strong>five main edits</strong> we need to make to the template:</p>
-<div id="edit-compendium-doi-details" class="section level4">
-<h4>edit compendium DOI details</h4>
+<div id="edit-compendium-doi-details" class="section level3">
+<h3>edit compendium DOI details</h3>
 <p>Although we don’t have a link to the DOI, we can complete the rest of the details and leave it as a place holder.</p>
 <pre><code>This repository contains the data and code for our reproduction paper:
 
 &gt; Krystalli, A, (2018). _Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools_.  &lt;https://doi.org/{DOI-to-paper}&gt;</code></pre>
 </div>
-<div id="edit-paper.pdf-doi" class="section level4">
-<h4>edit paper.pdf DOI</h4>
+<div id="edit-paper.pdf-doi" class="section level3">
+<h3>edit paper.pdf DOI</h3>
 <pre><code>Our reproduction pre-print is online here:
 
-&gt; Krystalli, A, (2018). _Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools_, Accessed 10 Apr 2019. Online at &lt;https://doi.org/{DOI-to-compendium}&gt;
+&gt; Krystalli, A, (2018). _Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools_, Accessed 11 Apr 2019. Online at &lt;https://doi.org/{DOI-to-compendium}&gt;
 </code></pre>
 </div>
-<div id="edit-compendium-citation" class="section level4">
-<h4>edit compendium citation</h4>
+<div id="edit-compendium-citation" class="section level3">
+<h3>edit compendium citation</h3>
 <pre><code>Please cite this compendium as:
 
-&gt; Krystalli, A, (2019). _Compendium of R code and data for &#39;Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools&#39;_. Accessed 10 Apr 2019. Online at &lt;https://doi.org/{DOI-to-compendium}&gt;</code></pre>
+&gt; Krystalli, A, (2019). _Compendium of R code and data for &#39;Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools&#39;_. Accessed 11 Apr 2019. Online at &lt;https://doi.org/{DOI-to-compendium}&gt;</code></pre>
 </div>
-<div id="update-zip-url" class="section level4">
-<h4>update zip url</h4>
+<div id="update-zip-url" class="section level3">
+<h3>update zip url</h3>
 <p>This is a link to download a zipped file of the repository. To update the template, just paste the url of your compendium repository like so:</p>
 <pre><code>### How to download or install
 
 You can download the compendium as a zip from from this URL: &lt;https://github.com/annakrystalli/rrcompendium/archive/master.zip&gt;</code></pre>
 </div>
-<div id="adjust-data-license" class="section level4">
-<h4>adjust data LICENSE</h4>
+<div id="adjust-data-license" class="section level3">
+<h3>adjust data LICENSE</h3>
 <p>Let’s <strong>adjust the data LICENSE to match the source compendium license</strong>, which is CC-BY 4.0. Let’s also add Carl Boettiger as copyright holder of the data.</p>
 <pre><code>**Text and figures :**  [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/), Copyright (c) 2018 Carl Boettiger.
 
 **Code :** See the [DESCRIPTION](DESCRIPTION) file
 
 **Data :** [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/), Copyright (c) 2018 Carl Boettiger.</code></pre>
+<p>Remember to knit your <code>README.Rmd</code> to it’s <code>.md</code> version.</p>
 <p><br></p>
 </div>
 </div>
-<div id="render-readme.md-commit-and-push-to-github" class="section level3">
-<h3>render README.md, commit and push to GitHub</h3>
+<div id="create-github-repository" class="section level2">
+<h2>🚦 Create GitHub repository</h2>
+<p>Next, we’ll <strong>create a GitHub repository to share our compendium</strong>. We’ll make use of our <code>GITHUB_PAT</code> and go for <code>https</code> authentication. We can do this with function:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_github</span>(<span class="dt">protocol =</span> <span class="st">&quot;https&quot;</span>)</a></code></pre></div>
+<pre><code>✔ Setting active project to &#39;/Users/Anna/Documents/workflows/rrcompendium&#39;
+● Check title and description
+  Name:        rrcompendium
+  Description: Partial Reproduction of Boettiger Ecology Letters 2018;21:1255–1267 with rrtools
+  </code></pre>
+<p>The function will prompt you to confirm the name and description for your GitHub repo which it parses from our <code>DESCRIPTION</code> file. If everything looks good select the affirmative option.</p>
+<pre><code>Are title and description ok?
+1: Not now
+2: Definitely
+3: Nope
+</code></pre>
+<p>If creation of the repo was successfull you should see the following console output:</p>
+<pre><code>✔ Creating GitHub repository
+✔ Adding GitHub remote
+✔ Adding GitHub links to DESCRIPTION
+✔ Setting URL field in DESCRIPTION to &#39;https://github.com/annakrystalli/rrcompendium&#39;
+✔ Setting BugReports field in DESCRIPTION to &#39;https://github.com/annakrystalli/rrcompendium/issues&#39;
+✔ Pushing to GitHub and setting remote tracking branch
+✔ Opening URL https://github.com/annakrystalli/rrcompendium</code></pre>
+<div id="commit-and-push-to-github" class="section level3">
+<h3>Commit and push to GitHub</h3>
 <div id="weve-now-completed-our-rrtools-readme.rmd" class="section level4">
 <h4>We’ve now completed our <code>rrtools</code> <code>README.Rmd</code>! 🎉</h4>
 <ul>
@@ -1452,11 +1486,12 @@ You can download the compendium as a zip from from this URL: &lt;https://github.
 </div>
 </div>
 </div>
-<div id="setting-up-the-analysis-folder" class="section level2">
-<h2>Setting up the analysis folder</h2>
+</div>
+<div id="setting-up-the-analysis-folder" class="section level1">
+<h1>🚦 Setting up the analysis folder</h1>
 <p><br></p>
-<div id="create-analysis" class="section level3">
-<h3>Create <code>analysis</code></h3>
+<div id="create-analysis" class="section level2">
+<h2>Create <code>analysis</code></h2>
 <p>We now need an <strong>analysis folder to contain our analysis and paper</strong>. We can do this using function <code>rrtools::use_analysis()</code></p>
 <p>The function has three <code>location =</code> options:</p>
 <ul>
@@ -1507,16 +1542,16 @@ Note that:
         ├── template.docx   # used to style the output of the paper.Rmd
         └── template.Rmd</code></pre>
 <p>Let’s inspect</p>
-<div id="paper.rmd" class="section level4">
-<h4><code>paper.Rmd</code></h4>
+<div id="paper.rmd" class="section level3">
+<h3><code>paper.Rmd</code></h3>
 <p><code>paper.Rmd</code> is ready to write in and render with bookdown. It includes:</p>
 <ul>
 <li><p>a YAML header that identifies the <code>references.bib</code> file and the supplied <code>csl</code> file (Citation Style Language) to style the reference list)</p></li>
 <li><p>a <strong>colophon</strong> that <strong>adds some git commit details to the end of the document</strong>. This means that the output file (HTML/PDF/Word) is always traceable to a specific state of the code.</p></li>
 </ul>
 </div>
-<div id="references.bib" class="section level4">
-<h4><code>references.bib</code></h4>
+<div id="references.bib" class="section level3">
+<h3><code>references.bib</code></h3>
 <p>The <code>references.bib</code> file has just one item to demonstrate the format. It is ready to insert more reference details.</p>
 <p>We can replace the supplied <code>csl</code> file with a different citation style from <a href="https://github.com/citation-style-language/" class="uri">https://github.com/citation-style-language/</a></p>
 <p><br></p>
@@ -1524,9 +1559,8 @@ Note that:
 </div>
 </div>
 </div>
-</div>
 <div id="reproduce-a-paper-in-rmd" class="section level1">
-<h1>Reproduce a paper in Rmd</h1>
+<h1>🚦 Reproduce a paper in Rmd</h1>
 <p>In this section we’re going to <strong>create a literate programming document to reproduce the paper</strong> in a format suitable for <strong>journal submission</strong> or as a <strong>pre-print</strong>. We’ll do this using the course materials we downloaded.</p>
 <p>In particular, we’re going to <strong>combine</strong> the <strong>code in <code>analysis.R</code></strong>, the <strong><code>text</code> in <code>paper.txt</code></strong> and the <strong>references in the <code>refs.bib</code></strong> file in an <code>.Rmd</code> document to reproduce <a href="https://github.com/annakrystalli/rrtools-wkshp-materials/blob/master/paper.pdf"><code>paper.pdf</code></a>.</p>
 <p>More information on working on <a href="https://bookdown.org/yihui/rmarkdown/journals.html">academic journals with Bookdown</a></p>
@@ -1578,7 +1612,7 @@ Note that:
 </div>
 </div>
 <div id="create-journal-article-template-using-rticles" class="section level2">
-<h2>Create journal article template using <code>rticles</code></h2>
+<h2>🚦 Create journal article template using <code>rticles</code></h2>
 <p>The <code>rticles</code> package is designed to <strong>simplify the creation of documents that conform to submission standards</strong>. A suite of custom R Markdown templates for popular journals is provided by the package.</p>
 <p><br></p>
 <div id="delete-paper-subdirectory" class="section level3">
@@ -1616,7 +1650,7 @@ Note that:
 </div>
 </div>
 <div id="update-yaml" class="section level2">
-<h2>Update YAML</h2>
+<h2>🚦 Update YAML</h2>
 <p>The <strong>YAML header in <code>Paper.Rmd</code></strong> contains <strong>document wide metadata</strong> and is pre-populated with some fields relevant to an academic publication.</p>
 <pre><code>
 ---
@@ -1640,7 +1674,7 @@ abstract: |
   It consists of two paragraphs.
 
 journal: &quot;An awesome journal&quot;
-date: &quot;2019-04-10&quot;
+date: &quot;2019-04-11&quot;
 bibliography: mybibfile.bib
 output: rticles::elsevier_article
 ---</code></pre>
@@ -1681,7 +1715,7 @@ output: rticles::elsevier_article
 <p><br></p>
 </div>
 <div id="layout" class="section level3">
-<h3>layout</h3>
+<h3>🚦 layout</h3>
 <p>We can add an additional field called <code>layout</code> which specifies the <strong>layout of the output</strong> and takes the following values.</p>
 <ul>
 <li><strong>review:</strong> doublespace margins</li>
@@ -1703,7 +1737,7 @@ output: rticles::elsevier_article
 <p><br></p>
 </div>
 <div id="abstract" class="section level3">
-<h3>abstract</h3>
+<h3>🚦 abstract</h3>
 <p>This field should <strong>contain the abstract</strong></p>
 <pre><code>abstract: |
 
@@ -1721,7 +1755,7 @@ output: rticles::elsevier_article
 </div>
 </div>
 <div id="add-text" class="section level2">
-<h2>Add text</h2>
+<h2>🚦 Add text</h2>
 <p>Now let’s <strong>add the main body of the paper from <code>paper.txt</code></strong>.</p>
 <p><br></p>
 <div id="add-new-page-after-abstract" class="section level3">
@@ -1760,15 +1794,16 @@ project CA-B-INS-0162-H.
 <p>Let’s knit our document and have our first look at the resulting pdf by clicking on the <strong>Knit</strong> tab.</p>
 <p><br></p>
 </div>
-<div id="update-references" class="section level3">
-<h3>Update references</h3>
+</div>
+<div id="update-references" class="section level2">
+<h2>🚦 Update references</h2>
 <p>Next we’ll replace the flat citations in the text with real linked citation which can be used to <strong>auto-generate formatted inline citations and the references section</strong>.</p>
-<div id="insert-formatted-citations" class="section level4">
-<h4>Insert formatted citations</h4>
+<div id="insert-formatted-citations" class="section level3">
+<h3>Insert formatted citations</h3>
 <p>We’ll use the <strong><code>citr</code> package</strong>, which provides functions and an RStudio addin to search a BibTeX-file to <strong>create and insert formatted Markdown citations</strong> into the current document.</p>
 <p>Once <code>citr</code> is installed and you have restarted your R session, the addin appears in the addin menu. The <strong>addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter</strong>.</p>
-<div id="to-insert-a-citation" class="section level5">
-<h5>To insert a citation</h5>
+<div id="to-insert-a-citation" class="section level4">
+<h4>To insert a citation</h4>
 <ol style="list-style-type: decimal">
 <li><p><strong>Select text</strong> to replace with a citation</p></li>
 <li><p><strong>Launch <code>citr</code> addin</strong>: <img src="assets/citr-addin.png" width="700px"></p></li>
@@ -1781,8 +1816,8 @@ project CA-B-INS-0162-H.
 </div>
 </div>
 </div>
-<div id="update-math" class="section level3">
-<h3>Update math</h3>
+<div id="update-math" class="section level2">
+<h2>🚦 Update math</h2>
 <p>For the sake of time today, and not to open this topic too deeply here, I’ve included the following <strong>LaTex equation syntax</strong> in the text:</p>
 <pre><code>\begin{align}
 \frac{\mathrm{d} n}{\mathrm{d} t} = \underbrace{c n \left(1 - \frac{n}{N}\right)}_{\textrm{birth}} - \underbrace{e n}_{\textrm{death}}, \label{levins}
@@ -1793,11 +1828,10 @@ project CA-B-INS-0162-H.
 \end{align}\]</span></p>
 <p>So you don’t need to edit anything here.</p>
 <p>Check <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html#math-expressions">Math expressions</a> and <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html">Markdown extensions by bookdown</a> for more information. <br></p>
-<div id="update-inline-math" class="section level4">
-<h4>update inline math</h4>
+<div id="update-inline-math" class="section level3">
+<h3>update inline math</h3>
 <p><strong>Inline LaTeX equations and parameters</strong> can be written <strong>between a pair of dollar signs</strong> using the LaTeX syntax, e.g., <code>$f(x) = 1/x$</code> generates <span class="math inline">\(f(x) = 1/x\)</span>.</p>
 <p>Using <code>paper.pdf</code> to identify mathematical expressions in the text (generally they appear in italic), <strong>edit your <code>paper.Rmd</code>, enclosing them between dollar signs</strong>.</p>
-</div>
 </div>
 <div id="check-pdf-output-1" class="section level3">
 <h3>Check pdf output</h3>
@@ -1807,7 +1841,7 @@ project CA-B-INS-0162-H.
 </div>
 </div>
 <div id="add-code" class="section level2">
-<h2>Add code</h2>
+<h2>🚦 Add code</h2>
 <p>Now that we’ve set up the text for our paper, let’s <strong>insert the code to generate figure 1.</strong></p>
 <p><br></p>
 <div id="add-libraries-chunk" class="section level3">
@@ -1835,8 +1869,9 @@ project CA-B-INS-0162-H.
 </ul>
 <p>to specify how figures will appear.</p>
 </div>
-<div id="add-libraries" class="section level4">
-<h4>add libraries</h4>
+</div>
+<div id="add-libraries" class="section level3">
+<h3>add libraries</h3>
 <p>Copy and paste the <strong>code for loading all the libraries from <code>analysis.R</code></strong>. Add library <code>rrcompendium</code> so we can access function <code>recode_system_size</code>. The <code>libraries</code> chunk should now look like so:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">FALSE</span>, <span class="dt">message=</span><span class="ot">FALSE</span>, <span class="dt">warning=</span><span class="ot">FALSE</span>, </a>
 <a class="sourceLine" id="cb59-2" data-line-number="2">                      <span class="dt">dev=</span><span class="st">&quot;cairo_pdf&quot;</span>, <span class="dt">fig.width=</span><span class="dv">7</span>, <span class="dt">fig.height=</span><span class="fl">3.5</span>)</a>
@@ -1847,7 +1882,6 @@ project CA-B-INS-0162-H.
 <a class="sourceLine" id="cb59-7" data-line-number="7"><span class="kw">library</span>(ggthemes)</a>
 <a class="sourceLine" id="cb59-8" data-line-number="8"><span class="kw">library</span>(rrcompendium)</a></code></pre></div>
 <p><br></p>
-</div>
 </div>
 <div id="add-set-theme-chunk" class="section level3">
 <h3>Add <code>set-theme</code> chunk</h3>
@@ -1882,7 +1916,7 @@ project CA-B-INS-0162-H.
 <a class="sourceLine" id="cb61-18" data-line-number="18"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>system_size, <span class="dt">scales =</span> <span class="st">&quot;free_y&quot;</span>) </a></code></pre></div>
 </div>
 <div id="add-caption" class="section level4">
-<h4>Add caption</h4>
+<h4>🚦 Add caption</h4>
 <p>Finally, let’s update chunk <code>figure1</code> to <strong>include a figure caption</strong>. The text for the caption is at the bottom of <code>paper.txt</code>. We can include it in the chunk header through <strong>chunk option <code>fig.cap</code></strong> like so:</p>
 <pre><code>    ```{r figure1, figure1, fig.cap=&quot;Population dynamics from a Gillespie simulation of the Levins model with large (N=1000, panel A) and small (N=100, panel B) number of sites (blue) show relatively weaker effects of demographic noise in the bigger system. Models are otherwise identical, with e = 0.2 and c = 1 (code in appendix A). Theoretical predictions for mean and plus/minus one standard deviation shown in horizontal re dashed lines.&quot;} ```</code></pre>
 <p><br></p>
@@ -1897,8 +1931,8 @@ project CA-B-INS-0162-H.
 <hr />
 </div>
 <div id="add-paper-dependencies" class="section level2">
-<h2>Add paper dependencies</h2>
-<p>Finally, before we’re finished, let’s ensure the additional dependencies introduced in the paper are included. We can use <code>rrtools::add_dependencies_to_description()</code></p>
+<h2>🚦 Add paper dependencies</h2>
+<p>Finally, before we’re finished, let’s ensure the dependencies introduced in the paper are included. We can use <code>rrtools::add_dependencies_to_description()</code></p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">rrtools<span class="op">::</span><span class="kw">add_dependencies_to_description</span>()</a></code></pre></div>
 <p>This function <strong>scans script files (<code>.R</code>, <code>.Rmd</code>, <code>.Rnw</code>, <code>.Rpres</code>, etc.) for external package dependencies</strong> indicated by <code>library()</code>, <code>require()</code> or <code>::</code> and <strong>adds those packages to the <code>Imports</code> field in the package <code>DESCRIPTION</code></strong>:</p>
 <pre><code>Imports: 
@@ -1913,7 +1947,7 @@ project CA-B-INS-0162-H.
 <div id="install-and-restart" class="section level4">
 <h4>🔨 <strong>Install and Restart</strong></h4>
 </div>
-<div id="commit-and-push-to-github" class="section level4">
+<div id="commit-and-push-to-github-1" class="section level4">
 <h4>Commit and push to GitHub!</h4>
 </div>
 </div>

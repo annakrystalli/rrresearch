@@ -274,7 +274,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ![](assets/reproducible-data-analysis-19.jpg)
 
 
-# Create your first package
+# `r emo::ji("computer")`Create your first package
 
 Let's go ahead and create our first package! We do that as we would any project, but this time we select **`R package`** instead of `New Project`. Call your package `mypackage`.
 
@@ -296,7 +296,7 @@ Your new project should have the following structure. The build pane should also
 ```
 
 
-## Functions in the **`R/`** dir
+## `r emo::ji("vertical_traffic_light")` Functions in the **`R/`** dir
 
 Let's inspect **`hello.R`**
 
@@ -354,7 +354,7 @@ rm(hello)
 
 ***
 
-## Roxygen documentation
+## `r emo::ji("vertical_traffic_light")` Roxygen documentation
 
 
 [`Roxygen2`](http://r-pkgs.had.co.nz/man.html) allows you to write specially-structured comments preceeding each function definition to document:
@@ -419,7 +419,7 @@ hello <- function() {
 
 ```
 
-### Create documentation
+### Autogenerate documentation
 
 Use function `devtools::document()` to create documentation. This re-creates a `hello.Rd` helpfile in the `man/` folder and populates the `NAMESPACE` with our functions
 
@@ -435,7 +435,7 @@ You can configure your build tools in the **Global Options** to automatically bu
 
 ![](assets/conf-build-tools.png)
 
-## Personalise function
+# `r emo::ji("vertical_traffic_light")` Personalise function
 
 Let's go a step further and customise our function so that the greeting is from ourselves!
 
@@ -454,7 +454,7 @@ hello <- function() {
 ```
 
 
-### Add some fun!
+## Add some fun!
 
 Programming is most useful for having fun. So let's make our function extra fun!
 
@@ -508,7 +508,7 @@ hello("y'all")
 ```
 
 
-# Check package integrity
+# `r emo::ji("vertical_traffic_light")` Check package integrity
 
 An **important part of the package development process is `R CMD check`**. `R CMD check` automatically **checks your code** and can **automatically detects many common problems** that we'd otherwise discover the hard way.
 
@@ -567,7 +567,7 @@ Exited with status 1.
 
 Aha, so our checks have thrown up some warnings! First, it's telling us we haven't added a `LICENSE`. It's also telling us that we have a dependency (import) from package `cowsay` which we haven't documented in the `DESCRIPTION` file. `usethis` to the rescue!
 
-## Add dependencies
+# `r emo::ji("vertical_traffic_light")` Add dependencies
 
 Add `cowsay` as a dependency.
 
@@ -603,7 +603,7 @@ R CMD check succeeded
 
 ***
 
-# Add Test
+# `r emo::ji("vertical_traffic_light")` Add Test
 
 **Testing is a vital part of package development**. It ensures that our code does what you want it to do. 
 
@@ -720,7 +720,7 @@ Failed:   0
 Warnings: 0
 Skipped:  0
 ```
-# Complete package metadata
+# `r emo::ji("vertical_traffic_light")` Complete package metadata
 
 
 Let's head to the `DESCRIPTION` file and complete the details.
@@ -776,7 +776,7 @@ Now, check you're package's citation:
 citation("mypackage")
 ```
 
-# Create README
+# `r emo::ji("vertical_traffic_light")` Create README
 
 The final document you will need for your package is a `README`.
 
@@ -797,7 +797,7 @@ Complete the README, including an example.
 
 ## Commit and push to GitHub
 
-Now you have everything you need to share your package on GitHub.
+Now you have everything you need to share your package on GitHub so commit and push it up.
 
 Anyone will be able to install it using, eg:
 
@@ -805,4 +805,86 @@ Anyone will be able to install it using, eg:
 devtools::install_github("annakrystalli/mypackage")
 ```
 
+# `r emo::ji("vertical_traffic_light")` Create documentation site
+
+You can use package `pkgdown` to create an online site for your documentation:
+
+```{r, eval=FALSE}
+install.packages("pkgdown")
+pkgdown::build_site()
+```
+
+```
+══ Building pkgdown site ════════════════════════════════════════════
+Reading from: '/Users/Anna/Documents/workflows/dummy/mypackage'
+Writing to:   '/Users/Anna/Documents/workflows/dummy/mypackage/docs'
+── Initialising site ────────────────────────────────────────────────
+Copying '../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/docsearch.css' to 'docsearch.css'
+Copying '../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/docsearch.js' to 'docsearch.js'
+Copying '../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/link.svg' to 'link.svg'
+Copying '../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/pkgdown.css' to 'pkgdown.css'
+Copying '../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/pkgdown.js' to 'pkgdown.js'
+── Building home ────────────────────────────────────────────────────
+Writing 'authors.html'
+Reading 'LICENSE.md'
+Writing 'LICENSE.html'
+Writing 'LICENSE-text.html'
+Reading 'README.Rmd'
+Writing 'index.html'
+── Building function reference ──────────────────────────────────────
+Updating mypackage documentation
+Writing NAMESPACE
+Loading mypackage
+Writing NAMESPACE
+Writing 'reference/index.html'
+Loading mypackage
+Reading 'man/hello.Rd'
+Writing 'reference/hello.html'
+══ DONE ═════════════════════════════════════════════════════════════
+── Previewing site ──────────────────────────────────────────────────
+```
+
+This creates html documentation for our package in the `docs/` folder. 
+
+- Commit and push the `docs/` folder to GitHub
+- Make the site live by enabling gh-pages. Set it to serve content from the `docs` folder.
+
+---
+
+Your package is now installable from GitHub, has online documentation and should have this final structure:
+
+```
+.
+├── DESCRIPTION
+├── LICENSE
+├── LICENSE.md
+├── NAMESPACE
+├── R
+│   └── hello.R
+├── README.Rmd
+├── README.md
+├── docs
+│   ├── LICENSE-text.html
+│   ├── LICENSE.html
+│   ├── authors.html
+│   ├── docsearch.css
+│   ├── docsearch.js
+│   ├── index.html
+│   ├── link.svg
+│   ├── pkgdown.css
+│   ├── pkgdown.js
+│   ├── pkgdown.yml
+│   └── reference
+│       ├── hello.html
+│       └── index.html
+├── man
+│   └── hello.Rd
+├── mypackage.Rproj
+└── tests
+    ├── testthat
+    │   └── test-hello.R
+    └── testthat.R
+
+6 directories, 23 files
+```
 Check out my complete example [here](https://github.com/annakrystalli/mypackage-demo)

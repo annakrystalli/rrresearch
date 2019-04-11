@@ -629,7 +629,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -638,7 +638,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#report"> Report <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -647,10 +647,10 @@ div.section {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2019-04-10
+<strong>Last updated:</strong> 2019-04-11
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>rrresearch/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -666,12 +666,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -726,10 +726,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/a3cfb2c4f62e72d875e10e0a757d4f024faae2ea" target="_blank">a3cfb2c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree115185a8e2907c7ce7a5c8d80c0f4d2470f47464targetblank115185aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/annakrystalli/rrresearch/tree/115185a8e2907c7ce7a5c8d80c0f4d2470f47464" target="_blank">115185a</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtreea3cfb2c4f62e72d875e10e0a757d4f024faae2eatargetblanka3cfb2ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomannakrystallirrresearchtree115185a8e2907c7ce7a5c8d80c0f4d2470f47464targetblank115185aa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -763,7 +763,9 @@ Ignored files:
     Ignored:    slides/libs/
 
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Modified:   analysis/09_pkg_functions.Rmd
+    Modified:   analysis/10_compendium.Rmd
+    Modified:   render-other.R
 
 </code></pre>
 <p>
@@ -802,6 +804,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/annakrystalli/rrresearch/115185a8e2907c7ce7a5c8d80c0f4d2470f47464/docs/09_pkg_functions.html" target="_blank">115185a</a>
+</td>
+<td>
+annakrystalli
+</td>
+<td>
+2019-04-10
+</td>
+<td>
+correct evolottery link in navbar
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1030,7 +1049,7 @@ Roxygen: list(markdown = TRUE)
 </div>
 </div>
 <div id="create-your-first-package" class="section level1">
-<h1>Create your first package</h1>
+<h1>💻Create your first package</h1>
 <p>Let’s go ahead and create our first package! We do that as we would any project, but this time we select <strong><code>R package</code></strong> instead of <code>New Project</code>. Call your package <code>mypackage</code>.</p>
 <div class="alert alert-info">
 <strong>File &gt; New Project… &gt; New Directory &gt; R package &gt; mypackage </strong>
@@ -1047,7 +1066,7 @@ Roxygen: list(markdown = TRUE)
 
 2 directories, 5 files</code></pre>
 <div id="functions-in-the-r-dir" class="section level2">
-<h2>Functions in the <strong><code>R/</code></strong> dir</h2>
+<h2>🚦 Functions in the <strong><code>R/</code></strong> dir</h2>
 <p>Let’s inspect <strong><code>hello.R</code></strong></p>
 <p>it contains a function that takes now arguments and prints <code>hello world</code> to the console when called. The comments above are just that, comments and don’t serve any functional purpose.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Hello, world!</span></a>
@@ -1082,7 +1101,7 @@ Roxygen: list(markdown = TRUE)
 </div>
 </div>
 <div id="roxygen-documentation" class="section level2">
-<h2>Roxygen documentation</h2>
+<h2>🚦 Roxygen documentation</h2>
 <p><a href="http://r-pkgs.had.co.nz/man.html"><code>Roxygen2</code></a> allows you to write specially-structured comments preceeding each function definition to document:</p>
 <ul>
 <li>the inputs and outputs</li>
@@ -1133,8 +1152,8 @@ Roxygen: list(markdown = TRUE)
 <a class="sourceLine" id="cb18-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;Hello, world!&quot;</span>)</a>
 <a class="sourceLine" id="cb18-11" data-line-number="11">}</a></code></pre></div>
 </div>
-<div id="create-documentation" class="section level3">
-<h3>Create documentation</h3>
+<div id="autogenerate-documentation" class="section level3">
+<h3>Autogenerate documentation</h3>
 <p>Use function <code>devtools::document()</code> to create documentation. This re-creates a <code>hello.Rd</code> helpfile in the <code>man/</code> folder and populates the <code>NAMESPACE</code> with our functions</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">document</span>()</a></code></pre></div>
 <p>Click <strong>Install and Restart</strong> to re-install the package and make the documentation available.</p>
@@ -1143,8 +1162,9 @@ Roxygen: list(markdown = TRUE)
 <p><img src="assets/conf-build-tools.png" /></p>
 </div>
 </div>
-<div id="personalise-function" class="section level2">
-<h2>Personalise function</h2>
+</div>
+<div id="personalise-function" class="section level1">
+<h1>🚦 Personalise function</h1>
 <p>Let’s go a step further and customise our function so that the greeting is from ourselves!</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">#&#39; Hello World!</span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">#&#39;</span></a>
@@ -1157,8 +1177,8 @@ Roxygen: list(markdown = TRUE)
 <a class="sourceLine" id="cb20-9" data-line-number="9">hello &lt;-<span class="st"> </span><span class="cf">function</span>() {</a>
 <a class="sourceLine" id="cb20-10" data-line-number="10">  <span class="kw">print</span>(<span class="st">&quot;Hello, world from Anna&quot;</span>)</a>
 <a class="sourceLine" id="cb20-11" data-line-number="11">}</a></code></pre></div>
-<div id="add-some-fun" class="section level3">
-<h3>Add some fun!</h3>
+<div id="add-some-fun" class="section level2">
+<h2>Add some fun!</h2>
 <p>Programming is most useful for having fun. So let’s make our function extra fun!</p>
 <p>We’ll use package <code>cowsay</code></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;cowsay&quot;</span>)</a></code></pre></div>
@@ -1260,9 +1280,8 @@ Hello y&#39;all from Anna!
     </code></pre>
 </div>
 </div>
-</div>
 <div id="check-package-integrity" class="section level1">
-<h1>Check package integrity</h1>
+<h1>🚦 Check package integrity</h1>
 <p>An <strong>important part of the package development process is <code>R CMD check</code></strong>. <code>R CMD check</code> automatically <strong>checks your code</strong> and can <strong>automatically detects many common problems</strong> that we’d otherwise discover the hard way.</p>
 <p>To check our package, we can:</p>
 <ul>
@@ -1303,14 +1322,14 @@ Execution halted
 
 Exited with status 1.</code></pre>
 <p>Aha, so our checks have thrown up some warnings! First, it’s telling us we haven’t added a <code>LICENSE</code>. It’s also telling us that we have a dependency (import) from package <code>cowsay</code> which we haven’t documented in the <code>DESCRIPTION</code> file. <code>usethis</code> to the rescue!</p>
-<div id="add-dependencies" class="section level2">
-<h2>Add dependencies</h2>
+</div>
+<div id="add-dependencies" class="section level1">
+<h1>🚦 Add dependencies</h1>
 <p>Add <code>cowsay</code> as a dependency.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_package</span>(<span class="st">&quot;cowsay&quot;</span>)</a></code></pre></div>
 <pre><code>✔ Setting active project to &#39;/Users/Anna/Desktop/mypackage&#39;
 ✔ Adding &#39;cowsay&#39; to Imports field in DESCRIPTION
 ● Refer to functions with `cowsay::fun()`</code></pre>
-</div>
 <div id="add-license" class="section level2">
 <h2>Add License</h2>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_mit_license</span>()</a></code></pre></div>
@@ -1326,7 +1345,7 @@ R CMD check succeeded</code></pre>
 </div>
 </div>
 <div id="add-test" class="section level1">
-<h1>Add Test</h1>
+<h1>🚦 Add Test</h1>
 <p><strong>Testing is a vital part of package development</strong>. It ensures that our code does what you want it to do.</p>
 <p>Once you’re set up with a testing framework, the workflow is simple:</p>
 <ol style="list-style-type: decimal">
@@ -1402,7 +1421,7 @@ Skipped:  0</code></pre>
 </div>
 </div>
 <div id="complete-package-metadata" class="section level1">
-<h1>Complete package metadata</h1>
+<h1>🚦 Complete package metadata</h1>
 <p>Let’s head to the <code>DESCRIPTION</code> file and complete the details.</p>
 <div id="authors" class="section level2">
 <h2>Authors</h2>
@@ -1459,7 +1478,7 @@ A BibTeX entry for LaTeX users is
 </div>
 </div>
 <div id="create-readme" class="section level1">
-<h1>Create README</h1>
+<h1>🚦 Create README</h1>
 <p>The final document you will need for your package is a <code>README</code>.</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">usethis<span class="op">::</span><span class="kw">use_readme_rmd</span>()</a></code></pre></div>
 <pre><code>✔ Writing &#39;README.Rmd&#39;
@@ -1470,9 +1489,82 @@ A BibTeX entry for LaTeX users is
 <p>Complete the README, including an example.</p>
 <div id="commit-and-push-to-github" class="section level2">
 <h2>Commit and push to GitHub</h2>
-<p>Now you have everything you need to share your package on GitHub.</p>
+<p>Now you have everything you need to share your package on GitHub so commit and push it up.</p>
 <p>Anyone will be able to install it using, eg:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;annakrystalli/mypackage&quot;</span>)</a></code></pre></div>
+</div>
+</div>
+<div id="create-documentation-site" class="section level1">
+<h1>🚦 Create documentation site</h1>
+<p>You can use package <code>pkgdown</code> to create an online site for your documentation:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;pkgdown&quot;</span>)</a>
+<a class="sourceLine" id="cb52-2" data-line-number="2">pkgdown<span class="op">::</span><span class="kw">build_site</span>()</a></code></pre></div>
+<pre><code>══ Building pkgdown site ════════════════════════════════════════════
+Reading from: &#39;/Users/Anna/Documents/workflows/dummy/mypackage&#39;
+Writing to:   &#39;/Users/Anna/Documents/workflows/dummy/mypackage/docs&#39;
+── Initialising site ────────────────────────────────────────────────
+Copying &#39;../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/docsearch.css&#39; to &#39;docsearch.css&#39;
+Copying &#39;../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/docsearch.js&#39; to &#39;docsearch.js&#39;
+Copying &#39;../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/link.svg&#39; to &#39;link.svg&#39;
+Copying &#39;../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/pkgdown.css&#39; to &#39;pkgdown.css&#39;
+Copying &#39;../../../../../../Library/Frameworks/R.framework/Versions/3.5/Resources/library/pkgdown/assets/pkgdown.js&#39; to &#39;pkgdown.js&#39;
+── Building home ────────────────────────────────────────────────────
+Writing &#39;authors.html&#39;
+Reading &#39;LICENSE.md&#39;
+Writing &#39;LICENSE.html&#39;
+Writing &#39;LICENSE-text.html&#39;
+Reading &#39;README.Rmd&#39;
+Writing &#39;index.html&#39;
+── Building function reference ──────────────────────────────────────
+Updating mypackage documentation
+Writing NAMESPACE
+Loading mypackage
+Writing NAMESPACE
+Writing &#39;reference/index.html&#39;
+Loading mypackage
+Reading &#39;man/hello.Rd&#39;
+Writing &#39;reference/hello.html&#39;
+══ DONE ═════════════════════════════════════════════════════════════
+── Previewing site ──────────────────────────────────────────────────</code></pre>
+<p>This creates html documentation for our package in the <code>docs/</code> folder.</p>
+<ul>
+<li>Commit and push the <code>docs/</code> folder to GitHub</li>
+<li>Make the site live by enabling gh-pages. Set it to serve content from the <code>docs</code> folder.</li>
+</ul>
+<hr />
+<p>Your package is now installable from GitHub, has online documentation and should have this final structure:</p>
+<pre><code>.
+├── DESCRIPTION
+├── LICENSE
+├── LICENSE.md
+├── NAMESPACE
+├── R
+│   └── hello.R
+├── README.Rmd
+├── README.md
+├── docs
+│   ├── LICENSE-text.html
+│   ├── LICENSE.html
+│   ├── authors.html
+│   ├── docsearch.css
+│   ├── docsearch.js
+│   ├── index.html
+│   ├── link.svg
+│   ├── pkgdown.css
+│   ├── pkgdown.js
+│   ├── pkgdown.yml
+│   └── reference
+│       ├── hello.html
+│       └── index.html
+├── man
+│   └── hello.Rd
+├── mypackage.Rproj
+└── tests
+    ├── testthat
+    │   └── test-hello.R
+    └── testthat.R
+
+6 directories, 23 files</code></pre>
 Check out my complete example <a href="https://github.com/annakrystalli/mypackage-demo">here</a> <br> <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1480,7 +1572,7 @@ Check out my complete example <a href="https://github.com/annakrystalli/mypackag
 </button>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>R version 3.5.2 (2018-12-20)
 Platform: x86_64-apple-darwin15.6.0 (64-bit)
 Running under: macOS Mojave 10.14.3
@@ -1499,17 +1591,17 @@ other attached packages:
 [1] testthat_2.0.1
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.1        knitr_1.22        whisker_0.3-2    
- [4] magrittr_1.5      workflowr_1.2.0   R6_2.4.0         
- [7] rlang_0.3.4       stringr_1.4.0     tools_3.5.2      
-[10] xfun_0.5          cowsay_0.7.0      git2r_0.25.2.9000
-[13] htmltools_0.3.6   fortunes_1.5-4    yaml_2.2.0       
-[16] rprojroot_1.3-2   digest_0.6.18     assertthat_0.2.0 
-[19] crayon_1.3.4      purrr_0.3.2       fs_1.2.7         
-[22] rmsfact_0.0.3     glue_1.3.1        evaluate_0.13    
-[25] rmarkdown_1.12    emo_0.0.0.9000    stringi_1.3.1    
-[28] compiler_3.5.2    backports_1.1.3   lubridate_1.7.4  </code></pre>
-</div>
+ [1] Rcpp_1.0.1        rstudioapi_0.10   knitr_1.22       
+ [4] whisker_0.3-2     magrittr_1.5      workflowr_1.2.0  
+ [7] R6_2.4.0          rlang_0.3.4       stringr_1.4.0    
+[10] tools_3.5.2       xfun_0.5          cowsay_0.7.0     
+[13] git2r_0.25.2.9000 htmltools_0.3.6   fortunes_1.5-4   
+[16] yaml_2.2.0        rprojroot_1.3-2   digest_0.6.18    
+[19] assertthat_0.2.0  crayon_1.3.4      purrr_0.3.2      
+[22] fs_1.2.7          rmsfact_0.0.3     glue_1.3.1       
+[25] evaluate_0.13     rmarkdown_1.12    emo_0.0.0.9000   
+[28] stringi_1.3.1     compiler_3.5.2    backports_1.1.3  
+[31] lubridate_1.7.4  </code></pre>
 </div>
 </div>
 
