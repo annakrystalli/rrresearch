@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
     + carrot: huge rewards from working open
 
 
-##### Yet we lack conventions and technical infrastructure for such openness.
+##### Yet we lag in conventions and technical infrastructure for such openness.
 
 <br>
 
@@ -53,16 +53,18 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 
  - Make use of great package development tools.
 
-2. Ben Marwick, Carl Boettiger & Lincoln Mullen (2018) [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375986?journalCode=utas20), The American Statistician, 72:1, 80-88, DOI: <10.1080/00031305.2017.1375986>
+See Ben Marwick, Carl Boettiger & Lincoln Mullen (2018) [_Packaging Data Analytical Work Reproducibly Using R (and Friends)_](https://www.tandfonline.com/doi/abs/10.1080/00031305.2017.1375986?journalCode=utas20), The American Statistician, 72:1, 80-88, DOI: <10.1080/00031305.2017.1375986>
 
 
 <img src="assets/reproducible-data-analysis-10.png" width="400px">
+
+images: [_Kartik Ram: rstudio::conf 2019 talk_](https://github.com/karthik/rstudio2019)
 
 _Example use of the R package structure for a research compendium_ (source Marwick _et al_, 2018)
 
 ***
 
-# Project Organisation
+# General Project Organisation
 
 Good project layout helps ensure the
 
@@ -80,10 +82,9 @@ Good project layout helps ensure the
 
 - Keep a clean pipeline of data processing from raw to analytical.
 
-<img src="https://dynamicecology.files.wordpress.com/2016/08/pipeline1.jpg" height="150">
-
-
 - Ideally, incorporate checks to ensure correct processing of data through to analytical.
+
+- Check out rOpenSci package [drake](https://github.com/ropensci/drake), an R-focused pipeline toolkit for reproducibility
 
 ---
 
@@ -100,9 +101,6 @@ Good project layout helps ensure the
 ## Use Rstudio projects
 
 ### Keep your work [tidy, portable and self-contained](https://nicercode.github.io/blog/2013-04-05-projects/)
-
-
-![](https://image.slidesharecdn.com/20150422reproresr8-160404131652/95/reproducible-research-in-r-and-r-studio-21-638.jpg?cb=1459775831)
 
 ### pkg `here`
 
@@ -128,8 +126,6 @@ here::here("path", "to", "file")
 Benjamin Franklin
 
 
----
-
 ### The benefits of following convention:
 
 - You will be able to find your way around any of your projects
@@ -140,7 +136,7 @@ Benjamin Franklin
 
 ---
 
-## Tools
+## R Developer Tools
 
 ### Leverage tools and functionality for **R package development**
 
