@@ -67,15 +67,10 @@ Linus Torvalds on the name **`git`**:
 
 ### Exhibit A
 
+<figure>
+<img src="http://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg" height="300px" width="400px">
+<figcaption> Image: xkcd CC BY-NC 2.5 </figcaption></figure>
 
-<img src="http://smutch.github.io/VersionControlTutorial/_images/vc-xkcd.jpg" height="200px" width="300px">
-
-### Exhibit B
-
-
-<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" height="400px" width="200px">
-
-<br>
 
 ---
 
@@ -90,6 +85,8 @@ A **website** that allows you to **store your Git repositories online** and make
 To enable collaboration and track contributions
 
 <img src="assets/workflows.png" width="350px"><img src="assets/collab.png" width="350px">
+
+_images: Mozilla Science Lab_ CC-BY 4.0
 
 <br>
 
