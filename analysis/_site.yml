@@ -14,7 +14,7 @@ navbar:
         icon: fa-caret-square-o-right
       - text: "Managing Data"
       - text: "Basic Data Hygiene"
-        href: 02_RDM-intro.html
+        href: 02_RDM_intro.html
         icon: fa-caret-square-o-right
       - text: "Good filenaming"
         href: 03_filenaming.html
@@ -55,9 +55,9 @@ navbar:
   right:
   - text: "Setup"
     href: setup.html
-    icon: fa-toolbox
-  - text: "Materials"
     icon: fa-cogs
+  - text: "Materials"
+    icon: fa-toolbox
     menu:
       - text: "Compendium"
         href: https://bit.ly/rrtools_wks
