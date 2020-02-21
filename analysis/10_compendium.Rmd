@@ -367,7 +367,7 @@ Now we're ready to **create our compendium**. We use function **`rrtools::create
 
 To **create `rrcompendium` in a directory called `Documents/workflows/` I use:**
 
-```{r}
+```{r, eval=FALSE}
 rrtools::create_compendium("~/Documents/workflows/rrcompendium")
 ```
 
