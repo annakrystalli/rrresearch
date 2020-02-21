@@ -5,4 +5,4 @@ demo_files <- fs::dir_ls("demos", regexp = ".Rmd")
 purrr::map(demo_files, ~rmarkdown::render(.x, output_dir = "docs"))
 
 # test
-rmarkdown::render("slides/01_intro.Rmd", output_dir = "docs")
+rmarkdown::render("slides/11_outro.Rmd", output_dir = "docs")
