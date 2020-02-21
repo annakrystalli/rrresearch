@@ -63,10 +63,10 @@ navbar:
         href: https://bit.ly/rrtools_wks
         icon: fa-save
   - icon: fa-github
-    href: https://github.com/annakrystalli/rrreserch
+    href: https://github.com/annakrystalli/rrresearch
 output:
   workflowr::wflow_html:
-    theme: flatly
+    css: assets/css/bootstrap2.css
     highlight: pygments
     toc: true
     toc_float: true
